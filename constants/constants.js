@@ -73,4 +73,36 @@ const TestmonialsCards = [
   }
 ];
 
-export { TestmonialsCards };
+const serviceInfo = [
+  {
+    id: 1,
+    image: "/images/sOne.jpg",
+    title: "Residential Interior Design",
+    description:
+      "We design distinctive residential interiors that balance comfort, visual harmony, and high-performance functionality. Each project explores texture and light, prioritizing premium materials and architectural proportions. By focusing on intuitive flow and daily usability, we ensure a cohesive, refined sanctuary that is intimately tailored to our client’s lifestyle.",
+  },
+  {
+    id: 2,
+    image: "/images/sTwo.jpg",
+    title: "Design Strategy & Space Planning",
+    description:
+      "We audit spatial requirements and movement flow to create a data-driven layout and intelligent zoning strategy. By optimizing every square foot for intentionality, we establish a definitive roadmap that guides all technical and material decisions. This ensures a seamless execution and eliminates ambiguity throughout the project lifecycle.",
+  },
+  {
+    id: 3,
+    image: "/images/sThree.jpg",
+    title: "Commercial & Offices Interiors",
+    description:
+      "We design bespoke commercial interiors that boost productivity and spatial efficiency. By blending human-centric design with smart technology, we create high-performance environments that reflect your brand’s prestige and optimize your workflow.",
+  },
+  {
+    id: 4,
+    image: "/images/sFour.jpg",
+    title: "3D Visualization & Design Revamp",
+    description:
+      "Our hyper-realistic 3D visualizations let you experience and validate every detail before construction begins. For existing spaces, our strategic design revamps breathe new life into interiors by reimagining layouts and finishes—modernizing your environment without the cost of structural changes.",
+  },
+];
+
+
+export { TestmonialsCards, serviceInfo };
