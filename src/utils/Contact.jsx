@@ -63,7 +63,7 @@ const Contact = () => {
 
         <button
           type="submit"
-          className="mt-2 bg-[#FEF1D9] w-[99%] md:w-full lg:w-[60%]  text-[#3E2519] py-4 rounded-2xl hover:bg-[#f9e0b6]"
+          className="mt-2 text-xs bg-[#FEF1D9] w-[60%]  text-[#3E2519] py-3 rounded-2xl hover:bg-[#f9e0b6]"
         >Request a consultation
         </button>
 

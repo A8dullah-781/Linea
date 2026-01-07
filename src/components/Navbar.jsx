@@ -41,7 +41,7 @@ const Navbar = () => {
               <span className="absolute bottom-[-4px] left-1/2 w-0 h-[1px] bg-[#3E2519] transition-all duration-300 ease-out group-hover:w-full group-hover:left-0" />
             </li>
           ))}
-          <button className="uppercase border transition-all hover:bg-[#3E2519] hover:text-white lg:text-[1.2vw] text-[1.6vw] border-[#3E2519] rounded-lg px-3 py-3">
+          <button className="uppercase border mr-8 transition-all hover:bg-[#3E2519] hover:text-white lg:text-[1.2vw] text-[1.6vw] border-[#3E2519] rounded-lg px-2 py-2">
             Free Consultation
           </button>
         </ul>

@@ -82,7 +82,7 @@ const Service = () => {
         <div className="flex justify-center mt-4">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="uppercase border bg-[#FFEBC6] border-[#3E2519] text-[#3E2519] px-6 py-3 rounded-lg"
+            className="uppercase border bg-[#FFEBC6] border-[#3E2519] text-[#3E2519] px-6 py-3 rounded-2xl"
           >
             {showAll ? "Show Less" : "View More"}
           </button>
