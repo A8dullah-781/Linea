@@ -65,7 +65,7 @@ const TestmonialsCards = [
   {
      id: 8,
     image:"/images/clientEight.jpg",
-    rating: 5,
+    rating: 3.5,
     descriptionOne: "“The design concepts were clear, functional, and visually refined. The process felt efficient and well thought out from start to finish.”",
     descriptionTwo: "“Minimal design with a strong functional approach.”",
     name: "Ryan Mitchell ",

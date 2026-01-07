@@ -8,12 +8,12 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-[#3b2416] text-[#f5e6cf] px-6 md:px-16 py-14">
+    <footer className="md:bg-[#3b2416] bg-[#f5e6cf] text-[#3b2416] md:text-[#f5e6cf] px-6 md:px-16 py-14">
       {/* Top Section */}
       <div className="flex flex-col lg:flex-row justify-between gap-10">
         {/* Left */}
         <div className="flex flex-col gap-6">
-          <h2 className="text-4xl font-[200] tracking-widest leading-tight">
+          <h2 className="text-4xl font-[300] md:font-[200] tracking-widest leading-tight">
             LET’S WORK <br /> TOGETHER
           </h2>
 
@@ -37,11 +37,11 @@ const Footer = () => {
             <input
               type="email"
               placeholder="Enter Your Email Address"
-              className="flex-1 px-4 py-2 rounded-2xl bg-[#f5e6cf] text-[#3b2416] outline-none"
+              className="flex-1 px-4 py-2 rounded-2xl border border-[#3b2416] bg-[#f5e6cf] text-[#f5e6cf] placeholder:text-[#3b2416]  md:text-[#3b2416] outline-none"
             />
             <button
               type="submit"
-              className="px-6 py-2 rounded-2xl hover:bg-[#f9e0b6] bg-[#f5e6cf] text-[#3b2416]"
+              className="px-6 py-2 md:w-full w-[30%] text-[#f5e6cf] bg-[#3b2416] rounded-2xl border border-[#3b2416] hover:bg-[#f9e0b6] md:bg-[#f5e6cf] md:text-[#3b2416]"
             >
               Join
             </button>
