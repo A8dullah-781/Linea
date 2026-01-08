@@ -1,33 +1,61 @@
-import React from 'react'
-import Navbar from './components/Navbar'
-import Home from './components/Home'
-import About from './components/About'
-import Featured from './components/Featured'
-import FeaturedTwo from './components/FeaturedTwo'
-import Service from './components/Service'
-import Testmonial from './components/Testmonial'
-import Contact from './utils/Contact'
-import Footer from './utils/Footer'
+import React, { useRef } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import About from './components/About';
+import Service from './components/Service';
+import Work from './components/Work';
+import Testmonial from './components/Testmonial';
+import Contact from './utils/Contact';
+import Footer from './utils/Footer';
+import Featured from './components/Featured';
+import FeaturedTwo from './components/FeaturedTwo';
 import LocomotiveScroll from 'locomotive-scroll';
 
 const App = () => {
-
+  
   const locomotiveScroll = new LocomotiveScroll();
   
-  return (
-    <div className='overflow-x-hidden'>
-      <Navbar/>
-      <Home/>
-      <About/>
-      <Featured/>
-      <FeaturedTwo/>
-      <Service/>
-      <Testmonial/>
-      <Contact/>
-      <Footer/>
-      
-    </div>
-  )
-}
+  const contactRef = useRef(null);
+  const aboutRef = useRef(null);
 
-export default App
+  const scrollToContact = () => {
+    contactRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToAbout = () => {
+    aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <Router>
+      <div className="overflow-x-hidden">
+        <Navbar scrollToContact={scrollToContact} scrollToAbout={scrollToAbout} />
+
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Home />
+                <About ref={aboutRef} />
+                <Featured />
+                <FeaturedTwo />
+                <Service />
+                <Work />
+                <Testmonial />
+                <Contact ref={contactRef} />
+              </>
+            }
+          />
+          <Route path="/services" element={<Service />} />
+          <Route path="/projects" element={<Work />} />
+        </Routes>
+
+        <Footer />
+      </div>
+    </Router>
+  );
+};
+
+export default App;

@@ -1,7 +1,7 @@
 const TestmonialsCards = [
   {
     id: 1,
-    image:"/images/clientOne.jpg",
+    image:"/images/clients/clientOne.jpg",
     rating: 4.5,
     descriptionOne: "“LINEA Interiors showed a strong understanding of space planning and design balance. The concepts were clean, modern, and practical for real-world execution.”",
     descriptionTwo: "“Clear communication and structured design process.”",
@@ -10,7 +10,7 @@ const TestmonialsCards = [
   },
   {
      id: 2,
-    image:"/images/clientTwo.jpg",
+    image:"/images/clients/clientTwo.jpg",
     rating: 5,
     descriptionOne: "”The 3D visualizations were clear and realistic, which made decision-making much easier. The overall design process felt structured and professional.”",
     descriptionTwo: "“Strong focus on usability and spatial balance.”",
@@ -19,7 +19,7 @@ const TestmonialsCards = [
   },
   {
      id: 3,
-    image:"/images/clientThree.jpg",
+    image:"/images/clients/clientThree.jpg",
     rating: 4,
     descriptionOne: "“The attention to proportions, materials, and layout details was impressive. The final design felt refined without being overdone.”",
     descriptionTwo: "“Design decisions backed by clarity and intent.”",
@@ -28,7 +28,7 @@ const TestmonialsCards = [
   },
   {
      id: 4,
-    image:"/images/clientFour.jpg",
+    image:"/images/clients/clientFour.jpg",
     rating: 5,
     descriptionOne: "“From initial concepts to final visuals, the workflow was smooth and efficient. The designs were thoughtful and aligned well with functional needs.”",
     descriptionTwo: "“A smooth workflow from concept to visualization.”",
@@ -37,7 +37,7 @@ const TestmonialsCards = [
   },
   {
      id: 5,
-    image:"/images/clientFive.jpg",
+    image:"/images/clients/clientFive.jpg",
     rating: 5,
     descriptionOne: "“LINEA Interiors demonstrated a refined approach to layout and spatial balance. The concepts were modern, minimal, and thoughtfully executed.”",
     descriptionTwo: "“Minimal design with a strong functional approach.”",
@@ -46,7 +46,7 @@ const TestmonialsCards = [
   },
   {
      id: 6,
-    image:"/images/clientSix.jpg",
+    image:"/images/clients/clientSix.jpg",
     rating: 5,
     descriptionOne: "“The clarity in design thinking and visual presentation stood out. The 3D concepts communicated ideas effectively and reduced unnecessary revisions.”",
     descriptionTwo: "“Design decisions backed by clarity and intent.”",
@@ -55,7 +55,7 @@ const TestmonialsCards = [
   },
   {
      id: 7,
-    image:"/images/clientSeven.jpg",
+    image:"/images/clients/clientSeven.jpg",
     rating: 5,
     descriptionOne: "“LINEA Interiors presented a clean and structured design approach. The layouts felt intentional, modern, and well-aligned with contemporary interior standards.”",
     descriptionTwo: "“Strong focus on usability and spatial balance.”",
@@ -64,7 +64,7 @@ const TestmonialsCards = [
   },
   {
      id: 8,
-    image:"/images/clientEight.jpg",
+    image:"/images/clients/clientEight.jpg",
     rating: 3.5,
     descriptionOne: "“The design concepts were clear, functional, and visually refined. The process felt efficient and well thought out from start to finish.”",
     descriptionTwo: "“Minimal design with a strong functional approach.”",
@@ -76,33 +76,43 @@ const TestmonialsCards = [
 const serviceInfo = [
   {
     id: 1,
-    image: "/images/sOne.jpg",
+    image: "/images/service/sOne.jpg",
     title: "Residential Interior Design",
     description:
       "We design distinctive residential interiors that balance comfort, visual harmony, and high-performance functionality. Each project explores texture and light, prioritizing premium materials and architectural proportions. By focusing on intuitive flow and daily usability, we ensure a cohesive, refined sanctuary that is intimately tailored to our client’s lifestyle.",
   },
   {
     id: 2,
-    image: "/images/sTwo.jpg",
+    image: "/images/service/sTwo.jpg",
     title: "Design Strategy & Space Planning",
     description:
       "We audit spatial requirements and movement flow to create a data-driven layout and intelligent zoning strategy. By optimizing every square foot for intentionality, we establish a definitive roadmap that guides all technical and material decisions. This ensures a seamless execution and eliminates ambiguity throughout the project lifecycle.",
   },
   {
     id: 3,
-    image: "/images/sThree.jpg",
+    image: "/images/service/sThree.jpg",
     title: "Commercial & Offices Interiors",
     description:
       "We design bespoke commercial interiors that boost productivity and spatial efficiency. By blending human-centric design with smart technology, we create high-performance environments that reflect your brand’s prestige and optimize your workflow.",
   },
   {
     id: 4,
-    image: "/images/sFour.jpg",
+    image: "/images/service/sFour.jpg",
     title: "3D Visualization & Design Revamp",
     description:
       "Our hyper-realistic 3D visualizations let you experience and validate every detail before construction begins. For existing spaces, our strategic design revamps breathe new life into interiors by reimagining layouts and finishes—modernizing your environment without the cost of structural changes.",
   },
 ];
 
+const ourWorkOne = [
+  {id:1, backgound: "/images/workOne/oneMain.png"},
+  {id:2, backgound: "/images/workTwo/twoMain.png"},
+];
 
-export { TestmonialsCards, serviceInfo };
+const ourWorkTwo = [
+  {id:1, backgound: "/images/workThree/threeMain.png"},
+  {id:2, backgound: "/images/workFour/fourMain.jpg"},
+]
+
+
+export { TestmonialsCards, serviceInfo, ourWorkOne, ourWorkTwo };

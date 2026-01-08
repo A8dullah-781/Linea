@@ -1,10 +1,12 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-const Contact = () => {
+const Contact = forwardRef((props, ref) => {
   return (
-    <div className="flex px-[5vw] bg-[#3E2519] md:bg-[#FEF1D9] items-center flex-col md:flex-row ">
+    <div ref={ref} id="contact" className="flex px-[5vw] bg-[#3E2519] md:bg-[#FEF1D9] items-center flex-col md:flex-row ">
       <div className="py-[4vh] md:py-[8vh] md:text-[#3E2519] text-[#FEF1D9] flex flex-col justify-evenly items-start w-full md:w-[55%]  ">
-        <div className="uppercase text-[10vw] md:text-left text-center md:text-[4vw] whitespace-nowrap leading-none font-semibold ">Let’s Design Your <br /> Space with <br /> Vision</div>
+        <div className="uppercase text-[10vw] md:text-left text-center md:text-[4vw] whitespace-nowrap leading-none font-semibold ">
+          Let’s Design Your <br /> Space with <br /> Vision
+        </div>
         <div className="hidden md:block">
           <div className="font-semibold">Why Work With Linea Interiors?</div>
           <ul className="list-disc px-6">
@@ -19,7 +21,7 @@ const Contact = () => {
           personally by our design team.
         </div>
       </div>
-      <div className="h-full flex  justify-center items-center w-full md:w-[45%] ">
+      <div className="h-full flex justify-center items-center w-full md:w-[45%] ">
        <div className="bg-[#3E2519] border-1 border-[#FEF1D9] text-white rounded-3xl lg:my-10 mb-6 md:mb-0  h-[70%] w-[90%]"> 
          <form
         action="https://formsubmit.co/your-email@example.com"
@@ -63,8 +65,9 @@ const Contact = () => {
 
         <button
           type="submit"
-          className="mt-2 text-xs bg-[#FEF1D9] w-[60%]  text-[#3E2519] py-3 rounded-2xl hover:bg-[#f9e0b6]"
-        >Request a consultation
+          className="mt-2 text-xs bg-[#FEF1D9] w-[60%] text-[#3E2519] py-3 rounded-2xl hover:bg-[#f9e0b6]"
+        >
+          Request a consultation
         </button>
 
         <input type="hidden" name="_captcha" value="false" />
@@ -73,6 +76,6 @@ const Contact = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Contact;

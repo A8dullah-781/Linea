@@ -1,9 +1,9 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import Count from "../utils/Count";
 
-const About = () => {
+const About = forwardRef((props, ref) => {
   return (
-    <div className="w-screen h-full md:px-[5vw] pt-3 md:pt-0 px-8 bg-[#FFEBC6]">
+    <div ref={ref} id="about" className="w-screen h-full md:px-[5vw] pt-3 md:pt-0 px-8 bg-[#FFEBC6]">
       <div className="uppercase mb-5 flex md:flex-row flex-col justify-between md:pt-5  lg:py-10 items-center">
         <div className="md:text-[4.5vw]  text-[14vw] font-[200]">About&nbsp;&nbsp;Us</div>
         <div className="md:text-[1.5vw] text-[3vw]">Harmony, Materiality & Feeling</div>
@@ -19,51 +19,51 @@ const About = () => {
       </div>
 
       <div className="flex w-full md:py-15 h-full md:h-1/2 flex-col md:flex-row">
-        
         <div className="h-full flex flex-col pr-5 text-right gap-10 text-[1.3vw] pl-15 w-[60%]">
-         <div className="lg:-mt-5 md:-mt-10 hidden md:block"> <p>Our 12-member team blends creativity, expertise, and precision. From designers to project managers, we work together to transform ideas into inspiring, functional spaces that leave a lasting impression.</p></div>
+         <div className="lg:-mt-5 md:-mt-10 hidden md:block"> 
+           <p>Our 12-member team blends creativity, expertise, and precision. From designers to project managers, we work together to transform ideas into inspiring, functional spaces that leave a lasting impression.</p>
+         </div>
 
          <div className=" hidden md:flex md:-mt-5 lg:-mt-0.5 flex-row justify-evenly items-center">
           <div className="flex flex-col justify-center items-center">
-          <div className="lg:text-[4.5vw] md:text-[3vw]"><Count target={11} step={1} speed={110}/>+</div>
-          <p className="text-[1vw]">Arcitects & Designers</p>
+            <div className="lg:text-[4.5vw] md:text-[3vw]"><Count target={11} step={1} speed={110}/>+</div>
+            <p className="text-[1vw]">Arcitects & Designers</p>
          </div>
          <div className="flex flex-col justify-center items-center">
-          <div className="lg:text-[4.5vw] md:text-[3vw]"><Count target={130} step={10} speed={70}/>+</div>
-          <p className="text-[1vw]">Projects</p>
+            <div className="lg:text-[4.5vw] md:text-[3vw]"><Count target={130} step={10} speed={70}/>+</div>
+            <p className="text-[1vw]">Projects</p>
          </div>
          <div className="flex flex-col justify-center items-center">
-          <div className="lg:text-[4.5vw] md:text-[3vw]"><Count target={5} step={1} speed={140}/>+</div>
-          <p className="text-[1vw]">Years Of Experience</p>
+            <div className="lg:text-[4.5vw] md:text-[3vw]"><Count target={5} step={1} speed={140}/>+</div>
+            <p className="text-[1vw]">Years Of Experience</p>
          </div>
          </div>
-
-
         </div>
+
         <div className="h-full w-full md:w-[40%] py-3 md:py-0 flex items-center ">
           <img className=" rounded-4xl md:-mt-15 " src="/images/roomTwo.jpg" alt="roomTwo" />
         </div>
-        <div className="md:-mt-5 text-center md:text-left block md:hidden text-[2.8vw] md:text-[1.3vw]"> <p>Our 12-member team blends creativity, expertise, and precision. From designers to project managers, we work together to transform ideas into inspiring, functional spaces that leave a lasting impression.</p></div>
-
+        <div className="md:-mt-5 text-center md:text-left block md:hidden text-[2.8vw] md:text-[1.3vw]"> 
+          <p>Our 12-member team blends creativity, expertise, and precision. From designers to project managers, we work together to transform ideas into inspiring, functional spaces that leave a lasting impression.</p>
+        </div>
 
         <div className=" flex flex-row md:hidden py-8 justify-evenly items-center">
           <div className="flex flex-col justify-center items-center">
-          <div className="text-[10vw]"><Count target={11} step={1} speed={110}/>+</div>
-          <p className="text-[2.5vw]">Arcitects & Designers</p>
+            <div className="text-[10vw]"><Count target={11} step={1} speed={110}/>+</div>
+            <p className="text-[2.5vw]">Arcitects & Designers</p>
          </div>
          <div className="flex flex-col justify-center items-center">
-          <div className="text-[10vw]"><Count target={130} step={10} speed={70}/>+</div>
-          <p className="text-[2.5vw]">Projects</p>
+            <div className="text-[10vw]"><Count target={130} step={10} speed={70}/>+</div>
+            <p className="text-[2.5vw]">Projects</p>
          </div>
          <div className="flex flex-col justify-center items-center">
-          <div className="text-[10vw]"><Count target={5} step={1} speed={140}/>+</div>
-          <p className="text-[2.5vw]">Years Of Experience</p>
+            <div className="text-[10vw]"><Count target={5} step={1} speed={140}/>+</div>
+            <p className="text-[2.5vw]">Years Of Experience</p>
          </div>
          </div>
       </div>
-
     </div>
   );
-};
+});
 
 export default About;
