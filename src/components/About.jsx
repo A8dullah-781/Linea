@@ -2,6 +2,8 @@ import React, { forwardRef } from "react";
 import Count from "../utils/Count";
 
 const About = forwardRef((props, ref) => {
+
+  
   return (
     <div ref={ref} id="about" className="w-screen h-full md:px-[5vw] pt-3 md:pt-0 px-8 bg-[#FFEBC6]">
       <div className="uppercase mb-5 flex md:flex-row flex-col justify-between md:pt-5  lg:py-10 items-center">
