@@ -11,6 +11,8 @@ const Footer = () => {
     <footer className="md:bg-[#3b2416] bg-[#f5e6cf] text-[#3b2416] md:text-[#f5e6cf] px-6 md:px-16 py-14">
       {/* Top Section */}
       <div className="flex flex-col lg:flex-row justify-between gap-10">
+
+        <img className="block md:hidden -my-6 w-[40vw]" src="/images/lineaLogo.png" alt="" />
         {/* Left */}
         <div className="flex flex-col gap-6">
           <h2 className="text-4xl font-[300] md:font-[200] tracking-widest leading-tight">
@@ -28,7 +30,7 @@ const Footer = () => {
         </div>
 
         {/* Right */}
-        <div className="flex flex-col gap-4 max-w-md w-full">
+        <div className="md:flex flex-col hidden gap-4 max-w-md w-full">
           <span className="text-sm tracking-wider">
             SUBSCRIBE FOR NEWSLETTER
           </span>
