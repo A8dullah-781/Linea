@@ -11,6 +11,8 @@ import Footer from './utils/Footer';
 import Featured from './components/Featured';
 import FeaturedTwo from './components/FeaturedTwo';
 import LocomotiveScroll from 'locomotive-scroll';
+import MainServices from '../src/pages/MainServices.jsx'
+import Projects from '../src/pages/Projects.jsx'
 
 const App = () => {
   
@@ -48,8 +50,8 @@ const App = () => {
               </>
             }
           />
-          <Route path="/services" element={<Service />} />
-          <Route path="/projects" element={<Work />} />
+          <Route path="/services" element={<MainServices />} />
+          <Route path="/projects" element={<Projects />} />
         </Routes>
 
         <Footer />
