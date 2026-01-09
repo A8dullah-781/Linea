@@ -39,22 +39,23 @@ const App = () => {
         <Navbar scrollToContact={scrollToContact} scrollToAbout={scrollToAbout} />
 
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Home />
-                <About ref={aboutRef} />
-                <Featured />
-                <FeaturedTwo />
-                <Service />
-                <Work />
-                <Testmonial />
-                <Contact ref={contactRef} />
-        <Footer />
-              </>
-            }
-          />
+         <Route
+  path="/"
+  element={
+    <>
+      <Home contactRef={contactRef} /> {/* Pass contactRef */}
+      <About ref={aboutRef} />
+      <Featured />
+      <FeaturedTwo />
+      <Service />
+      <Work />
+      <Testmonial />
+      <Contact ref={contactRef} />
+      <Footer />
+    </>
+  }
+/>
+
           <Route path="/services" element={<MainServices />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projectOne" element={<WorkOne />} />

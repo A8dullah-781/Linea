@@ -1,16 +1,39 @@
-import React from "react";
+import React, { useRef } from "react";
 import { IoMdArrowForward } from "react-icons/io";
 import { serviceInfo } from "../../constants/constants";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
-const Service = () => {
-
+const Service = ({ scrollToContact }) => {
   const [showAll, setShowAll] = useState(false);
 
   const visibleServices = showAll
     ? serviceInfo
     : serviceInfo.slice(0, 2);
 
+  const contactRef = useRef(null);
+  const location = useLocation();
+
+  // Scroll to contact if navigated via state
+  useEffect(() => {
+    if (location.state?.scrollTo === "contact") {
+      setTimeout(() => {
+        contactRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, [location]);
+
+  // Expose scrollToContact for Navbar
+  const handleScrollToContact = () => {
+    contactRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // Pass handleScrollToContact to Navbar
+  useEffect(() => {
+    if (scrollToContact) {
+      scrollToContact.current = handleScrollToContact;
+    }
+  }, []);
 
   return (
     <div className=" h-full px-[5vw] pb-10 w-screen bg-[#3E2519] md:bg-[#FEF1D9]">
@@ -53,42 +76,43 @@ const Service = () => {
         </div>
       </div>
       <div className="block md:hidden">
-      {visibleServices.map(item => (
-        <div
-          key={item.id}
-          className="flex justify-center mb-4 items-center"
-        >
-          <div className="bg-[#FFEBC6] overflow-hidden rounded-2xl h-full w-[80vw] flex flex-col">
-            <img
-              src={item.image}
-              alt={item.title}
-              className="h-[30vh] w-full object-cover"
-            />
+        {visibleServices.map(item => (
+          <div
+            key={item.id}
+            className="flex justify-center mb-4 items-center"
+          >
+            <div className="bg-[#FFEBC6] overflow-hidden rounded-2xl h-full w-[80vw] flex flex-col">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="h-[30vh] w-full object-cover"
+              />
 
-            <div className="p-4 flex flex-col gap-3">
-              <h2 className="uppercase text-[4.4vw] text-center font-medium">
-                {item.title}
-              </h2>
+              <div className="p-4 flex flex-col gap-3">
+                <h2 className="uppercase text-[4.4vw] text-center font-medium">
+                  {item.title}
+                </h2>
 
-              <p className="text-[2.4vw] text-center leading-relaxed">
-                {item.description}
-              </p>
+                <p className="text-[2.4vw] text-center leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
 
-      {serviceInfo.length > 2 && (
-        <div className="flex justify-center mt-4">
-          <button
-            onClick={() => setShowAll(!showAll)}
-            className="uppercase border bg-[#FFEBC6] border-[#3E2519] text-[#3E2519] px-6 py-3 rounded-2xl"
-          >
-            {showAll ? "Show Less" : "View More"}
-          </button>
-        </div>
-      )}
-    </div>
+        {serviceInfo.length > 2 && (
+          <div className="flex justify-center mt-4">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="uppercase border bg-[#FFEBC6] border-[#3E2519] text-[#3E2519] px-6 py-3 rounded-2xl"
+            >
+              {showAll ? "Show Less" : "View More"}
+            </button>
+          </div>
+        )}
+      </div>
+
     </div>
   );
 };

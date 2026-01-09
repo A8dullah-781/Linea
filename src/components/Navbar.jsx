@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes, FaLinkedin, FaFacebookF, FaBehance, FaDribbble, FaInstagram } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Navbar = ({ scrollToContact, scrollToAbout }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,6 +8,7 @@ const Navbar = ({ scrollToContact, scrollToAbout }) => {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const menuItems = ["Home", "Services", "Portfolio", "About Us"];
 
@@ -31,12 +32,10 @@ const Navbar = ({ scrollToContact, scrollToAbout }) => {
       navigate("/");
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else if (item === "About Us") {
-      // If we are on home page, scroll to section, else navigate home first
-      if (window.location.pathname === "/") {
-        scrollToAbout();
-      } else {
+      if (location.pathname === "/") scrollToAbout();
+      else {
         navigate("/");
-        setTimeout(() => scrollToAbout(), 100); // small delay to wait for page render
+        setTimeout(() => scrollToAbout(), 100);
       }
     } else if (item === "Services") {
       navigate("/services");
@@ -45,9 +44,21 @@ const Navbar = ({ scrollToContact, scrollToAbout }) => {
     }
   };
 
+  const handleContactClick = () => {
+  setIsOpen(false);
+
+  // Agar home page par ho to direct scroll
+  if (location.pathname === "/") {
+    scrollToContact();
+  } else {
+    // Agar kisi aur page pe ho to navigate aur scroll
+    navigate("/", { state: { scrollTo: "contact" } });
+  }
+};
+
+
   return (
     <>
-      {/* Navbar for all devices */}
       <nav
         className={`flex h-[8vh] md:h-[8vh] lg:h-[12vh] w-screen bg-[#FFEBC6] justify-between items-center px-6 text-[#3E2519] fixed top-0 left-0 transition-transform duration-300 z-50
         ${scrollDir === "down" && !isOpen ? "-translate-y-full" : "translate-y-0"}`}
@@ -56,7 +67,6 @@ const Navbar = ({ scrollToContact, scrollToAbout }) => {
           <img className="w-[30vw] md:w-[14vw] lg:w-[10vw]" src="/images/lineaLogo.webp" alt="Logo" />
         </div>
 
-        {/* Desktop Menu */}
         <ul className="hidden md:flex text-[1.1vw] items-center gap-10">
           {menuItems.map((item) => (
             <li
@@ -69,20 +79,18 @@ const Navbar = ({ scrollToContact, scrollToAbout }) => {
             </li>
           ))}
           <button
-            onClick={scrollToContact}
+            onClick={handleContactClick}
             className="uppercase border mr-8 transition-all hover:bg-[#3E2519] hover:text-white lg:text-[1.2vw] text-[1.6vw] border-[#3E2519] rounded-lg px-2 py-2"
           >
             Free Consultation
           </button>
         </ul>
 
-        {/* Mobile Hamburger */}
         <div className="md:hidden text-2xl cursor-pointer z-50" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <FaTimes /> : <FaBars />}
         </div>
       </nav>
 
-      {/* Mobile Fullscreen Menu */}
       <div
         className={`fixed top-0 right-0 h-full w-full bg-[#FFEBC6] z-50 transform transition-transform duration-500 ease-in-out
           ${isOpen ? "translate-x-0" : "translate-x-full"}`}
@@ -102,10 +110,7 @@ const Navbar = ({ scrollToContact, scrollToAbout }) => {
               ))}
             </ul>
             <button
-              onClick={() => {
-                setIsOpen(false);
-                scrollToContact();
-              }}
+              onClick={handleContactClick}
               className="uppercase border bg-[#3E2519] text-white border-[#3E2519] rounded-lg px-6 py-3 mt-4"
             >
               Free Consultation

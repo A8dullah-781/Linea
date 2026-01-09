@@ -5,16 +5,17 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { ourWorkOne, ourWorkTwo } from "../../constants/constants";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Work = () => {
   const [activeIndexOne, setActiveIndexOne] = useState(0);
   const [activeIndexTwo, setActiveIndexTwo] = useState(0);
   const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <div className="bg-[#FEF1D9] min-h-screen md:hidden flex flex-col items-center w-screen">
-      
+
       {/* HEADER */}
       <div className="flex flex-col justify-center items-center">
         <div className="uppercase text-[12vw] py-6 font-light">Our work</div>
@@ -27,19 +28,13 @@ const Work = () => {
       <div className="md:hidden mt-4 flex flex-col items-center">
         <Swiper
           effect="coverflow"
-          grabCursor={true}
-          centeredSlides={false}
+          grabCursor
           slidesPerView={1}
           spaceBetween={16}
           speed={700}
           coverflowEffect={{ rotate: 0, stretch: 0, depth: 100, modifier: 1, slideShadows: false }}
           modules={[EffectCoverflow, Pagination]}
-          pagination={{
-            clickable: true,
-            renderBullet: (index, className) => {
-              return `<span class="${className}" style="background:#3E2519;width:12px;height:12px;border-radius:9999px;display:inline-block;margin:0 4px;"></span>`;
-            },
-          }}
+          pagination={{ clickable: true }}
           className="w-[70vw] rounded-2xl h-[41vh]"
           onSlideChange={(swiper) => setActiveIndexOne(swiper.activeIndex)}
         >
@@ -58,8 +53,10 @@ const Work = () => {
         <button
           className="bg-[#3E2519] rounded-2xl mt-1.5 text-white py-2 px-4"
           onClick={() => {
-            if (activeIndexOne === 0) navigate("/projectThree");
-            else if (activeIndexOne === 1) navigate("/projectFour");
+            if (activeIndexOne === 0)
+              navigate("/projectOne", { state: { from: location.pathname } });
+            else if (activeIndexOne === 1)
+              navigate("/projectTwo", { state: { from: location.pathname } });
           }}
         >
           View Project
@@ -74,19 +71,13 @@ const Work = () => {
       <div className="md:hidden mb-12 flex flex-col items-center">
         <Swiper
           effect="coverflow"
-          grabCursor={true}
-          centeredSlides={false}
+          grabCursor
           slidesPerView={1}
           spaceBetween={16}
           speed={700}
           coverflowEffect={{ rotate: 0, stretch: 0, depth: 100, modifier: 1, slideShadows: false }}
           modules={[EffectCoverflow, Pagination]}
-          pagination={{
-            clickable: true,
-            renderBullet: (index, className) => {
-              return `<span class="${className}" style="background:#3E2519;width:12px;height:12px;border-radius:9999px;display:inline-block;margin:0 4px;"></span>`;
-            },
-          }}
+          pagination={{ clickable: true }}
           className="w-[70vw] rounded-2xl h-[41vh]"
           onSlideChange={(swiper) => setActiveIndexTwo(swiper.activeIndex)}
         >
@@ -105,8 +96,10 @@ const Work = () => {
         <button
           className="bg-[#3E2519] rounded-2xl mt-1.5 text-white py-2 px-4"
           onClick={() => {
-            if (activeIndexTwo === 0) navigate("/projectThree");
-            else if (activeIndexTwo === 1) navigate("/projectFour");
+            if (activeIndexTwo === 0)
+              navigate("/projectThree", { state: { from: location.pathname } });
+            else if (activeIndexTwo === 1)
+              navigate("/projectFour", { state: { from: location.pathname } });
           }}
         >
           View Project
