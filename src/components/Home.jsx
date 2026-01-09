@@ -3,11 +3,11 @@ import React from "react";
 const Home = () => {
   return (
     <div id="home">
-      <div className="lg:h-[90vh] h-[90vh] md:h-[35vh] lg:mt-[10vh] md:mt-[6vh] mt-[8vh] flex flex-row w-screen bg-[url('/images/mobHeroBg.png')] md:bg-[url('/images/heroBg.jpg')] bg-center  bg-cover">
+      <div className="lg:h-[90vh] h-[90vh] md:h-[35vh] lg:mt-[10vh] md:mt-[6vh] mt-[8vh] flex flex-row w-screen bg-[url('/images/mobHeroBg.webp')] md:bg-[url('/images/heroBg.webp')] bg-center  bg-cover">
         <div className="flex justify-start md:justify-center md:px-15 flex-col items-center md:items-start gap-3 md:gap-5 h-full md:w-[45%] w-full ">
           <img
             className="md:w-[30vw] w-[90vw] md:mt-0 mt-6 md:-ml-5"
-            src="/images/lineaLogo.png"
+            src="/images/lineaLogo.webp"
             alt="Logo"
           />
           <p className="font-medium px-8 md:px-0  uppercase whitespace-nowrap leading-none text-[4.5vw] text-center md:text-left md:text-[1.8vw]">

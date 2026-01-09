@@ -16,7 +16,7 @@ const Service = () => {
     <div className=" h-full px-[5vw] pb-10 w-screen bg-[#3E2519] md:bg-[#FEF1D9]">
       <div className="md:text-[4.5vw] text-[12vw] text-center md:text-left uppercase text-[#FEF1D9] md:text-[#3E2519] py-5 font-[200]">Our services</div>
       <div className="rounded-2xl hidden md:block relative overflow-hidden   w-full ">
-        <img src="/images/servicesBg.jpg" alt="serivcesbg" />
+        <img src="/images/servicesBg.webp" alt="serivcesbg" />
         <div className="h-[47%] flex flex-col p-[1.5vw] justify-between items-start box w-[50%] rounded-2xl bg-[#FFEBC6] absolute top-0 right-0">
           <div>
             <div className="uppercase text-[3vw] font-medium ">

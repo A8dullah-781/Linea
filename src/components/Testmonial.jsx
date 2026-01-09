@@ -118,11 +118,8 @@ const Testmonial = () => {
           "
         >
           <div className="flex gap-3 justify-center items-center">
-            <img
-              src={card.image}
-              loading="lazy"
-              className="w-12 h-12 rounded-full object-cover"
-            />
+            
+            <div className="w-12 h-12 rounded-full bg-[url(`${card.image}`)] object-cover"></div>
             <div>
               <p className="text-sm font-semibold">{card.name}</p>
               <p className="text-xs opacity-70">{card.title}</p>

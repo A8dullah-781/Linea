@@ -47,6 +47,7 @@ const App = () => {
                 <Work />
                 <Testmonial />
                 <Contact ref={contactRef} />
+        <Footer />
               </>
             }
           />
@@ -54,7 +55,6 @@ const App = () => {
           <Route path="/projects" element={<Projects />} />
         </Routes>
 
-        <Footer />
       </div>
     </Router>
   );

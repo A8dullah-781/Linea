@@ -3,11 +3,11 @@ import React from 'react'
 const Featured = () => {
   return (
         <div className='w-full hidden px-[4.5vw] pb-2 gap-2 justify-center items-end bg-[#3E2519] lg:flex h-screen'>
-            <div className='h-[90%]  w-[40%] bg-[url(/images/feature/featureOne.jpg)] bg-contain'>
+            <div className='h-[90%]  w-[40%] bg-[url(/images/feature/featureOne.webp)] bg-contain'>
             </div>
             <div className='h-[90%] flex flex-col justify-center items-center gap-2 w-[60%]'>
-                 <div className='h-1/2 w-full bg-[url(/images/feature/featureTwo.jpg)] bg-contain'></div>
-                 <div className='h-1/2 w-full bg-[url(/images/feature/featureThree.jpg)] bg-contain'></div>
+                 <div className='h-1/2 w-full bg-[url(/images/feature/featureTwo.webp)] bg-contain'></div>
+                 <div className='h-1/2 w-full bg-[url(/images/feature/featureThree.webp)] bg-contain'></div>
             </div>
         </div>
   )

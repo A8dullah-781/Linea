@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 const Contact = forwardRef((props, ref) => {
   return (
     <div ref={ref} id="contact" className="flex px-[5vw] bg-[#3E2519] md:bg-[#FEF1D9] items-center flex-col md:flex-row ">
-      <div className="py-[4vh] md:py-[8vh] md:text-[#3E2519] text-[#FEF1D9] flex flex-col justify-evenly items-start w-full md:w-[55%]  ">
+      <div className="py-[4vh] md:py-[8vh] md:text-[#3E2519] text-[#FEF1D9] gap-4 flex flex-col justify-evenly items-start w-full md:w-[55%]  ">
         <div className="uppercase text-[10vw] md:text-left text-center md:text-[4vw] whitespace-nowrap leading-none font-semibold ">
           Let’s Design Your <br /> Space with <br /> Vision
         </div>

@@ -13,7 +13,7 @@ const About = forwardRef((props, ref) => {
 
       <div className="flex w-full md:h-1/2 h-full flex-col md:flex-row">
         <div className="h-full w-full md:w-[40%] hidden md:flex items-center">
-          <img className=" rounded-4xl" src="/images/roomOne.jpg" alt="roomOne" />
+          <img className=" rounded-4xl" src="/images/roomOne.webp" alt="roomOne" />
         </div>
         <div className="h-full md:pl-5 flex justify-center md:mt-5 lg:mt-10 items-center text-[2.8vw] text-center md:text-left md:text-[1.3vw] w-full md:w-[60%]">
           <p>Design isn’t just about looks—it’s about creating an experience that resonates with the people who inhabit a space. We specialize in crafting interiors that are not only visually stunning but also highly functional, where every detail is thoughtfully considered and every corner tells a story. Our approach blends creativity with practicality, ensuring that each space is as inspiring to live in as it is to behold.</p>
@@ -43,7 +43,7 @@ const About = forwardRef((props, ref) => {
         </div>
 
         <div className="h-full w-full md:w-[40%] py-3 md:py-0 flex items-center ">
-          <img className=" rounded-4xl md:-mt-15 " src="/images/roomTwo.jpg" alt="roomTwo" />
+          <img className=" rounded-4xl md:-mt-15 " src="/images/roomTwo.webp" alt="roomTwo" />
         </div>
         <div className="md:-mt-5 text-center md:text-left block md:hidden text-[2.8vw] md:text-[1.3vw]"> 
           <p>Our 12-member team blends creativity, expertise, and precision. From designers to project managers, we work together to transform ideas into inspiring, functional spaces that leave a lasting impression.</p>

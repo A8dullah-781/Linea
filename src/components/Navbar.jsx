@@ -49,11 +49,11 @@ const Navbar = ({ scrollToContact, scrollToAbout }) => {
     <>
       {/* Navbar for all devices */}
       <nav
-        className={`flex h-[8vh] md:h-[6vh] lg:h-[12vh] w-screen bg-[#FFEBC6] justify-between items-center px-6 text-[#3E2519] fixed top-0 left-0 transition-transform duration-300 z-50
+        className={`flex h-[8vh] md:h-[8vh] lg:h-[12vh] w-screen bg-[#FFEBC6] justify-between items-center px-6 text-[#3E2519] fixed top-0 left-0 transition-transform duration-300 z-50
         ${scrollDir === "down" && !isOpen ? "-translate-y-full" : "translate-y-0"}`}
       >
         <div>
-          <img className="w-[30vw] md:w-[14vw] lg:w-[10vw]" src="/images/lineaLogo.png" alt="Logo" />
+          <img className="w-[30vw] md:w-[14vw] lg:w-[10vw]" src="/images/lineaLogo.webp" alt="Logo" />
         </div>
 
         {/* Desktop Menu */}
@@ -93,7 +93,7 @@ const Navbar = ({ scrollToContact, scrollToAbout }) => {
 
         <div className="flex flex-col justify-between py-6 items-center h-full gap-8">
           <div className="flex mt-[6vh] items-center flex-col">
-            <img className="py-2 mb-6 w-[50vw]" src="/images/lineaLogo.png" alt="" />
+            <img className="py-2 mb-6 w-[50vw]" src="/images/lineaLogo.webp" alt="" />
             <ul className="flex flex-col items-center gap-6 text-xl font-semibold">
               {menuItems.map((item) => (
                 <li key={item} className="cursor-pointer" onClick={() => handleMenuClick(item)}>
