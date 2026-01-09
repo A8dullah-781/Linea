@@ -29,14 +29,15 @@ const Work = () => {
         <Swiper
           effect="coverflow"
           grabCursor
-          slidesPerView={1}
-          spaceBetween={16}
+          slidesPerView={1.2}
+          spaceBetween={-30}
           speed={700}
-          coverflowEffect={{ rotate: 0, stretch: 0, depth: 100, modifier: 1, slideShadows: false }}
+          coverflowEffect={{ rotate: 50, stretch: 0, depth: 100, modifier: 1, scale: 0.8,  slideShadows: false }}
           modules={[EffectCoverflow, Pagination]}
           pagination={{ clickable: true }}
-          className="w-[70vw] rounded-2xl h-[41vh]"
+          className="w-[80vw] rounded-2xl h-[41vh]"
           onSlideChange={(swiper) => setActiveIndexOne(swiper.activeIndex)}
+          
         >
           {ourWorkOne.map((item) => (
             <SwiperSlide key={item.id}>
@@ -69,17 +70,18 @@ const Work = () => {
       </div>
 
       <div className="md:hidden mb-12 flex flex-col items-center">
-        <Swiper
+         <Swiper
           effect="coverflow"
           grabCursor
-          slidesPerView={1}
-          spaceBetween={16}
+          slidesPerView={1.2}
+          spaceBetween={-30}
           speed={700}
-          coverflowEffect={{ rotate: 0, stretch: 0, depth: 100, modifier: 1, slideShadows: false }}
+          coverflowEffect={{ rotate: 50, stretch: 0, depth: 100, modifier: 1, scale: 0.8,  slideShadows: false }}
           modules={[EffectCoverflow, Pagination]}
           pagination={{ clickable: true }}
-          className="w-[70vw] rounded-2xl h-[41vh]"
-          onSlideChange={(swiper) => setActiveIndexTwo(swiper.activeIndex)}
+          className="w-[80vw] rounded-2xl h-[41vh]"
+          onSlideChange={(swiper) => setActiveIndexOne(swiper.activeIndex)}
+          
         >
           {ourWorkTwo.map((item) => (
             <SwiperSlide key={item.id}>
