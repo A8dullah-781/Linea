@@ -30,7 +30,7 @@ const WorkTwo = () => {
         <div className=' bg-[url(/images/workTwo/twoFour.webp)] h-[40vh] md:h-[70vh] bg-cover bg-center rounded-2xl w-[90vw]'>
 
         </div>
-        <div className=' bg-[url(/images/workTwo/twoFive.webp)]  h-[40vh] md:h-[70vh] bg-cover bg-bottom rounded-2xl w-[90vw]'>
+        <div className=' bg-[url(/images/workTwo/twoFive.webp)] hidden md:block  h-[40vh] md:h-[70vh] bg-cover bg-bottom rounded-2xl w-[90vw]'>
 
         </div>
     </div>
