@@ -75,10 +75,7 @@ const Service = ({ scrollToContact }) => {
           </div>
         </div>
       </div>
-      <div className="block bg-[#3E2519] mt-[8vh] py-8 md:hidden">
-       <div className="uppercase text-center text-[#FFEBC6] text-[10vw] pb-4 font-[200]">
-         our services
-       </div>
+      <div className="block bg-[#3E2519] py-8 md:hidden">
      
        {serviceInfo.map((item, index) => {
          const hidden = !showAll && index >= 2;

@@ -60,7 +60,7 @@ const Navbar = ({ scrollToContact, scrollToAbout }) => {
   return (
     <>
       <nav
-        className={`flex h-[8vh] md:h-[8vh] lg:h-[12vh] w-screen bg-[#FFEBC6] justify-between items-center px-6 text-[#3E2519] fixed top-0 left-0 transition-transform duration-300 z-50
+        className={`flex h-[8vh] md:h-[8vh] lg:h-[10vh] w-screen bg-[#FFEBC6] justify-between items-center px-6 text-[#3E2519] fixed top-0 left-0 transition-transform duration-300 z-50
         ${scrollDir === "down" && !isOpen ? "-translate-y-full" : "translate-y-0"}`}
       >
         <div>
@@ -71,7 +71,7 @@ const Navbar = ({ scrollToContact, scrollToAbout }) => {
           {menuItems.map((item) => (
             <li
               key={item}
-              className="relative text-[1.6vw] lg:text-[1.2vw] group cursor-pointer"
+              className="relative text-[1.6vw] lg:text-[1vw] group cursor-pointer"
               onClick={() => handleMenuClick(item)}
             >
               {item}
@@ -80,7 +80,7 @@ const Navbar = ({ scrollToContact, scrollToAbout }) => {
           ))}
           <button
             onClick={handleContactClick}
-            className="uppercase border mr-8 transition-all hover:bg-[#3E2519] hover:text-white lg:text-[1.2vw] text-[1.6vw] border-[#3E2519] rounded-lg px-2 py-2"
+            className="uppercase border mr-8 transition-all hover:bg-[#3E2519] hover:text-white lg:text-[1vw] text-[1.6vw] border-[#3E2519] rounded-lg px-2 py-2"
           >
             Free Consultation
           </button>

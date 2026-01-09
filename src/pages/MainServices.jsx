@@ -17,7 +17,7 @@ const MainServices = () => {
 
   return (
    <>
-    <div className='lg:mt-[10vh] hidden h-full  bg-[#FEF1D9]  py-8 w-screen md:flex flex-col items-center md:mt-[6vh] mt-[8vh]'>
+    <div className='lg:mt-[10vh] hidden h-full  bg-[#FEF1D9]  py-4 w-screen md:flex flex-col items-center md:mt-[6vh] mt-[8vh]'>
         <div className='uppercase text-[5.4vw] py-4 font-[200]'>our services</div>
 
 
