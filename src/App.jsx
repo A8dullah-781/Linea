@@ -13,6 +13,10 @@ import FeaturedTwo from './components/FeaturedTwo';
 import LocomotiveScroll from 'locomotive-scroll';
 import MainServices from '../src/pages/MainServices.jsx'
 import Projects from '../src/pages/Projects.jsx'
+import WorkOne from './pages/WorkOne.jsx';
+import WorkTwo from './pages/WorkTwo.jsx';
+import WorkThree from './pages/WorkThree.jsx';
+import WorkFour from './pages/WorkFour.jsx';
 
 const App = () => {
   
@@ -53,6 +57,10 @@ const App = () => {
           />
           <Route path="/services" element={<MainServices />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projectOne" element={<WorkOne />} />
+          <Route path="/projectTwo" element={<WorkTwo />} />
+          <Route path="/projectThree" element={<WorkThree />} />
+          <Route path="/projectFour" element={<WorkFour />} />
         </Routes>
 
       </div>
