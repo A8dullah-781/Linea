@@ -1,20 +1,23 @@
 import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useNavigationType } from "react-router-dom";
+
+
 
 const Home = ({ contactRef }) => {
 
-   const location = useLocation();
-
-   useEffect(() => {
-  if (location.state?.scrollTo === "contact") {
-    // Scroll only if we came via navigation
+const navigationType = useNavigationType();
+  useEffect(() => {
+  if (
+    navigationType === "PUSH" &&
+    location.state?.scrollTo === "contact"
+  ) {
     const timer = setTimeout(() => {
       contactRef.current?.scrollIntoView({ behavior: "smooth" });
     }, 200);
 
     return () => clearTimeout(timer);
   }
-}, [location]);
+}, [location, navigationType]);
 
 
   return (

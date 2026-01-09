@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Home from './components/Home';
+import Home from './components/Home.jsx';
 import About from './components/About';
 import Service from './components/Service';
 import Work from './components/Work';

@@ -64,45 +64,57 @@ const MainServices = () => {
 
     </div>
 
-          <div className="block bg-[#3E2519] mt-[8vh] py-8  md:hidden">
-            
-        <div className='uppercase text-center text-[#FFEBC6] text-[10vw] pb-4 font-[200]'>our services</div>
-      {visibleServices.map(item => (
-        <div
-          key={item.id}
-          className="flex justify-center mb-4 items-center"
-        >
-          <div className="bg-[#FFEBC6] overflow-hidden rounded-2xl h-full w-[80vw] flex flex-col">
-            <img
-              src={item.image}
-              alt={item.title}
-              className="h-[30vh] w-full object-cover"
-            />
+       <div className="block bg-[#3E2519] mt-[8vh] py-8 md:hidden">
+  <div className="uppercase text-center text-[#FFEBC6] text-[10vw] pb-4 font-[200]">
+    our services
+  </div>
 
-            <div className="p-4 flex flex-col gap-3">
-              <h2 className="uppercase text-[4.4vw] text-center font-medium">
-                {item.title}
-              </h2>
+  {serviceInfo.map((item, index) => {
+    const hidden = !showAll && index >= 2;
 
-              <p className="text-[2.4vw] text-center leading-relaxed">
-                {item.description}
-              </p>
-            </div>
+    return (
+      <div
+        key={item.id}
+        className={`
+          flex justify-center mb-4 items-center
+          transition-all duration-1000 ease-in-out
+          ${hidden ? "max-h-0 opacity-0 scale-95 overflow-hidden" : "max-h-[100vh] opacity-100 scale-100"}
+        `}
+      >
+        <div className="bg-[#FFEBC6] overflow-hidden rounded-2xl h-full w-[80vw] flex flex-col">
+          <img
+            src={item.image}
+            alt={item.title}
+            className="h-[30vh] w-full object-cover"
+          />
+
+          <div className="p-4 flex flex-col gap-3">
+            <h2 className="uppercase text-[4.4vw] text-center font-medium">
+              {item.title}
+            </h2>
+
+            <p className="text-[2.4vw] text-center leading-relaxed">
+              {item.description}
+            </p>
           </div>
         </div>
-      ))}
+      </div>
+    );
+  })}
 
-      {serviceInfo.length > 2 && (
-        <div className="flex justify-center mt-4">
-          <button
-            onClick={() => setShowAll(!showAll)}
-            className="uppercase border bg-[#FFEBC6] border-[#3E2519] text-[#3E2519] px-6 py-3 rounded-2xl"
-          >
-            {showAll ? "Show Less" : "View More"}
-          </button>
-        </div>
-      )}
+  {serviceInfo.length > 2 && (
+    <div className="flex justify-center mt-4">
+      <button
+        onClick={() => setShowAll(!showAll)}
+        className="uppercase border bg-[#FFEBC6] border-[#3E2519] text-[#3E2519] px-6 py-3 rounded-2xl transition-all duration-300 active:scale-95"
+      >
+        {showAll ? "Show Less" : "View More"}
+      </button>
     </div>
+  )}
+</div>
+
+
 <ContactDark/>
 <FooterDark/>
    </>
