@@ -12,7 +12,7 @@ const WorkOne = () => {
                 <div  className='uppercase  text-[4vw] font-[200] '>(residential Project)</div>
                 <div  className=' text-[3vw] pb-6 font-[300] '>A bright and minimal residential interior designed to highlight openness, natural light, and visual balance. Neutral tones, clean lines, and thoughtful proportions were used to create a calm and timeless living environment. The design prioritizes simplicity and comfort while enhancing the sense of space and clarity.</div>
             </div>
-            <div className='h-full md:w-[49%] w-full rounded-2xl  bg-[url(/images/workOne/oneMain.webp)] bg-cover bg-amber-300'></div>
+            <div className='h-full md:w-[49%] w-full rounded-2xl  bg-[url(/images/workOne/oneMain.webp)] bg-cover '></div>
             <div className='h-full  w-[49%] rounded-2xl hidden md:flex flex-col justify-center items-start gap-2 pr-10 text-[#FEF1D9] '>
                 <div className='uppercase text-[4vw] leading-none'>Luma <br /> residence</div>
                 <div  className='uppercase text-[1.3vw] font-[200] '>(residential Project)</div>
@@ -23,8 +23,8 @@ const WorkOne = () => {
 
         </div>
         <div className='flex justify-between flex-col md:flex-row gap-2 items-center h-[70vh] w-[90vw]'>
-            <div className='h-full w-full md:w-[50%] rounded-2xl  bg-[url(/images/workOne/oneTwo.webp)] bg-cover bg-amber-300'></div>
-            <div className='h-full w-full md:w-[50%] rounded-2xl  bg-[url(/images/workOne/oneThree.webp)] bg-cover bg-amber-300'></div>
+            <div className='h-full w-full md:w-[50%] rounded-2xl  bg-[url(/images/workOne/oneTwo.webp)] bg-cover '></div>
+            <div className='h-full w-full md:w-[50%] rounded-2xl  bg-[url(/images/workOne/oneThree.webp)] bg-cover'></div>
         </div>
 
         <div className=' bg-[url(/images/workOne/oneFour.webp)] h-[40vh] md:h-[70vh] bg-cover bg-center rounded-2xl w-[90vw]'>
