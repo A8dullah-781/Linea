@@ -29,7 +29,7 @@ const Work = () => {
         <Swiper
           effect="coverflow"
           grabCursor
-          slidesPerView={1.2}
+          slidesPerView={1.1}
           spaceBetween={-30}
           speed={700}
           coverflowEffect={{ rotate: 50, stretch: 0, depth: 100, modifier: 1, scale: 0.8,  slideShadows: false }}
