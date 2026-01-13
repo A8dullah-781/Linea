@@ -17,55 +17,72 @@ import WorkOne from "./pages/WorkOne.jsx";
 import WorkTwo from "./pages/WorkTwo.jsx";
 import WorkThree from "./pages/WorkThree.jsx";
 import WorkFour from "./pages/WorkFour.jsx";
+import Lenis from "@studio-freight/lenis";
 
-import LocomotiveScroll from "locomotive-scroll";
-
-const ScrollHandler = ({ children }) => {
+const ScrollHandler = () => {
   const location = useLocation();
   const scrollContainerRef = useRef(null);
   const contactRef = useRef(null);
   const aboutRef = useRef(null);
+  const lenisRef = useRef(null);
 
-  // Initialize LocomotiveScroll
+  // Initialize Lenis
   useEffect(() => {
     if (!scrollContainerRef.current) return;
-    const loco = new LocomotiveScroll({
+
+    lenisRef.current = new Lenis({
       el: scrollContainerRef.current,
       smooth: true,
+      duration: 1.2,
+      lerp: 0.08,
     });
 
+    const raf = (time) => {
+      lenisRef.current.raf(time);
+      requestAnimationFrame(raf);
+    };
+    requestAnimationFrame(raf);
+
     return () => {
-      if (loco) loco.destroy();
+      lenisRef.current.destroy();
     };
   }, []);
 
   // Scroll to top on route change
   useEffect(() => {
-    if (scrollContainerRef.current && scrollContainerRef.current._locomotive) {
-      scrollContainerRef.current._locomotive.scrollTo(0, {
-        duration: 0,
-        disableLerp: true,
-      });
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { immediate: true });
     } else {
       window.scrollTo(0, 0);
     }
   }, [location.pathname]);
 
-  // Scroll functions
+  // State-based scroll (Contact / About)
+  useEffect(() => {
+    if (!location.state?.scrollTo) return;
+
+    const scrollTarget = location.state.scrollTo === "contact" ? contactRef : aboutRef;
+
+    const timer = setTimeout(() => {
+      if (scrollTarget.current) {
+        if (lenisRef.current) lenisRef.current.scrollTo(scrollTarget.current);
+        else scrollTarget.current.scrollIntoView({ behavior: "smooth" });
+      }
+      window.history.replaceState({}, document.title);
+    }, 50);
+
+    return () => clearTimeout(timer);
+  }, [location]);
+
+  // Scroll functions to pass to Navbar
   const scrollToContact = () => {
-    if (scrollContainerRef.current && scrollContainerRef.current._locomotive) {
-      scrollContainerRef.current._locomotive.scrollTo(contactRef.current);
-    } else {
-      contactRef.current?.scrollIntoView({ behavior: "smooth" });
-    }
+    if (lenisRef.current) lenisRef.current.scrollTo(contactRef.current);
+    else contactRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const scrollToAbout = () => {
-    if (scrollContainerRef.current && scrollContainerRef.current._locomotive) {
-      scrollContainerRef.current._locomotive.scrollTo(aboutRef.current);
-    } else {
-      aboutRef.current?.scrollIntoView({ behavior: "smooth" });
-    }
+    if (lenisRef.current) lenisRef.current.scrollTo(aboutRef.current);
+    else aboutRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -89,7 +106,6 @@ const ScrollHandler = ({ children }) => {
             </>
           }
         />
-
         <Route path="/services" element={<MainServices />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/projectOne" element={<WorkOne />} />

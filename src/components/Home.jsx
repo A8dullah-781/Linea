@@ -1,23 +1,39 @@
 import React, { useEffect } from "react";
 import { useNavigationType } from "react-router-dom";
-
-
+import gsap from "gsap";
 
 const Home = ({ contactRef }) => {
+  const navigationType = useNavigationType();
 
-const navigationType = useNavigationType();
-  useEffect(() => {
-  if (
-    navigationType === "PUSH" &&
-    location.state?.scrollTo === "contact"
-  ) {
+useEffect(() => {
+  if (location.state?.scrollTo === "contact" && contactRef.current) {
     const timer = setTimeout(() => {
-      contactRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, 200);
+      // Lenis ho to Lenis scroll, nahi to default
+      if (typeof window.lenis !== "undefined") {
+        window.lenis.scrollTo(contactRef.current);
+      } else {
+        contactRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
 
     return () => clearTimeout(timer);
   }
-}, [location, navigationType]);
+}, [location]);
+
+
+  // ✨ GSAP Fade + From Bottom effect
+useEffect(() => {
+  gsap.fromTo(
+    "#home div.flex.justify-start",
+    { y: 50, opacity: 0 },  // from
+    { y: 0, opacity: 1, delay:0.3, duration: 1.5, ease: "power2.out", stagger: 0.3 } // to
+  );
+  gsap.fromTo(
+    ".other",
+    { y: 20, opacity: 0 },  // from
+    { y: 0, opacity: 1, delay:0.3, duration: 1.5, ease: "power2.out", stagger: 0.3 } // to
+  );
+}, []);
 
 
   return (
@@ -37,14 +53,16 @@ const navigationType = useNavigationType();
             function, and timeless design tailored to the way you live and work.
           </p>
           <button
-            onClick={() => contactRef.current?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() =>
+              contactRef.current?.scrollIntoView({ behavior: "smooth" })
+            }
             className="uppercase text-[3.5vw] md:text-[1.1vw] border text-white bg-[#3E2519] transition-all hover:bg-[#FFEBC6] hover:text-black border-[#3E2519] rounded-lg px-3 py-3"
           >
             Free Consultation
           </button>
         </div>
         <div className="hidden md:flex uppercase text-[1.5vw] px-15 h-full w-[55%]">
-          <div className="flex flex-col absolute top-[15%] lg:top-[30%] right-15 items-end justify-end">
+          <div className="flex flex-col other absolute top-[15%] lg:top-[30%] right-15 items-end justify-end">
             <p>urban chic</p>
             <p>peaceful interiors</p>
             <p>modern comforts</p>
