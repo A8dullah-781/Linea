@@ -12,6 +12,8 @@ const Work = () => {
   const [activeIndexTwo, setActiveIndexTwo] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
+  const vwToPx = (vw) => (window.innerWidth * vw) / 100;
+
 
   return (
     <div className="bg-[#FEF1D9] min-h-screen md:hidden flex flex-col items-center w-screen">
@@ -27,18 +29,27 @@ const Work = () => {
       {/* FIRST SWIPER */}
       <div className="md:hidden mt-4 flex flex-col items-center">
         <Swiper
-          effect="coverflow"
-          grabCursor
-          slidesPerView={1.1}
-          spaceBetween={-30}
-          speed={700}
-          coverflowEffect={{ rotate: 50, stretch: 0, depth: 100, modifier: 1, scale: 0.8,  slideShadows: false }}
-          modules={[EffectCoverflow, Pagination]}
-          pagination={{ clickable: true }}
-          className="w-[80vw] rounded-2xl h-[41vh]"
-          onSlideChange={(swiper) => setActiveIndexOne(swiper.activeIndex)}
-          
-        >
+  effect="coverflow"
+  grabCursor
+  slidesPerView={1.2}
+  spaceBetween={-30}
+  speed={700}
+  slidesOffsetBefore={activeIndexOne === 0 ? vwToPx(10) : 0}
+  slidesOffsetAfter={activeIndexOne === 1 ? vwToPx(10) : 0}
+  coverflowEffect={{
+    rotate: 50,
+    stretch: 0,
+    depth: 100,
+    modifier: 1,
+    scale: 0.8,
+    slideShadows: false,
+  }}
+  modules={[EffectCoverflow, Pagination]}
+  pagination={{ clickable: true }}
+  className="w-[99vw] rounded-2xl h-[41vh]"
+  onSlideChange={(swiper) => setActiveIndexOne(swiper.activeIndex)}
+>
+
           {ourWorkOne.map((item) => (
             <SwiperSlide key={item.id}>
               <div
@@ -71,18 +82,26 @@ const Work = () => {
 
       <div className="md:hidden mb-12 flex flex-col items-center">
          <Swiper
-          effect="coverflow"
-          grabCursor
-          slidesPerView={1.1}
-          spaceBetween={-30}
-          speed={700}
-          coverflowEffect={{ rotate: 50, stretch: 0, depth: 100, modifier: 1, scale: 0.8,  slideShadows: false }}
-          modules={[EffectCoverflow, Pagination]}
-          pagination={{ clickable: true }}
-          className="w-[80vw] rounded-2xl h-[41vh]"
-          onSlideChange={(swiper) => setActiveIndexOne(swiper.activeIndex)}
-          
-        >
+  effect="coverflow"
+  grabCursor
+  slidesPerView={1.2}
+  spaceBetween={-30}
+  speed={700}
+  slidesOffsetBefore={activeIndexOne === 0 ? vwToPx(10) : 0}
+  slidesOffsetAfter={activeIndexOne === 1 ? vwToPx(10) : 0}
+  coverflowEffect={{
+    rotate: 50,
+    stretch: 0,
+    depth: 100,
+    modifier: 1,
+    scale: 0.8,
+    slideShadows: false,
+  }}
+  modules={[EffectCoverflow, Pagination]}
+  pagination={{ clickable: true }}
+  className="w-[99vw] rounded-2xl h-[41vh]"
+  onSlideChange={(swiper) => setActiveIndexOne(swiper.activeIndex)}
+>
           {ourWorkTwo.map((item) => (
             <SwiperSlide key={item.id}>
               <div

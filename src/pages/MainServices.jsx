@@ -43,7 +43,7 @@ const MainServices = () => {
 
       <div className={`h-full ${isEven ? "w-[65%]" :"w-[65%]"} flex flex-col justify-center px-4`}>
         <h2 className="text-3xl text-left font-[300] mb-4">{item.title}</h2>
-        <p className="text-sm text-left leading-relaxed">{item.description}</p>
+        <p className="text-[1.2vw] text-left leading-relaxed">{item.description}</p>
       </div>
 
       {!isEven && (

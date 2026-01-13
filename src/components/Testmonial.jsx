@@ -44,12 +44,12 @@ const Testmonial = () => {
               <div
                 key={card.id}
                 className="
-                  w-[20vw] h-[60vh]
+                  w-[20vw] h-[50vh]
                   bg-[#FEF1D9]
-                  rounded-3xl p-5
+                  rounded-3xl p-[1vw]
                   text-[#3E2519]
                   transition-all duration-300 ease-out
-                  opacity-100
+                  opacity-100 relative
                   flex justify-start gap-6 flex-col relative
                 "
               >
@@ -58,29 +58,28 @@ const Testmonial = () => {
                     <img
                       src={card.image}
                       loading="lazy"
-                      className="w-12 h-12 rounded-full object-cover"
+                      className="w-[4vw] h-[8vh] rounded-full object-top object-cover"
                     />
                     <div>
-                      <p className="text-sm font-semibold">{card.name}</p>
-                      <p className="text-xs opacity-70">{card.title}</p>
+                      <p className="text-[1vw] font-semibold">{card.name}</p>
+                      <p className="text-[1vw] opacity-70">{card.title}</p>
                     </div>
                   </div>
 
                   <div className="flex justify-between flex-row gap-1 my-3">
                     <div className="flex flex-row gap-1">
                       {Array.from({ length: 5 }).map((_, i) => {
-                        if (i < full) return <FaStar key={i} />;
-                        else if (i === full && half) return <FaStarHalfAlt key={i} />;
-                        else return <FaRegStar key={i} />;
+                        if (i < full) return <FaStar className="text-[1vw]" key={i} />;
+                        else if (i === full && half) return <FaStarHalfAlt className="text-[1vw]" key={i} />;
+                        else return <FaRegStar className="text-[1vw]" key={i} />;
                       })}
                     </div>
-                    <div>Rating ({card.rating})</div>
+                    <div className="text-[1vw]">Rating ({card.rating})</div>
                   </div>
                 </div>
-
-                <div className="flex flex-col gap-2">
-                  <p className="text-sm text-center">{card.descriptionOne}</p>
-                  <p className="text-xs text-center opacity-70 mt-2">
+                <div className="flex justify-between flex-col gap-2">
+                  <p className="text-[1.1vw] text-center">{card.descriptionOne}</p>
+                  <p className="text-[1vw] text-center opacity-70 mt-2">
                     {card.descriptionTwo}
                   </p>
                 </div>
