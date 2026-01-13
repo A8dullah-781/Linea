@@ -33,8 +33,8 @@ const Work = () => {
   slidesPerView={1.2}
   spaceBetween={-30}
   speed={700}
-  slidesOffsetBefore={25}
-slidesOffsetAfter={25}
+  slidesOffsetBefore={35}
+slidesOffsetAfter={35}
 
   coverflowEffect={{
     rotate: 50,
@@ -87,8 +87,8 @@ slidesOffsetAfter={25}
   slidesPerView={1.2}
   spaceBetween={-30}
   speed={700}
-  slidesOffsetBefore={25}
-slidesOffsetAfter={25}
+  slidesOffsetBefore={35}
+slidesOffsetAfter={35}
 
   coverflowEffect={{
     rotate: 50,
