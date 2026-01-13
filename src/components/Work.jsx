@@ -12,7 +12,6 @@ const Work = () => {
   const [activeIndexTwo, setActiveIndexTwo] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
-  const vwToPx = (vw) => (window.innerWidth * vw) / 100;
 
 
   return (
@@ -34,8 +33,9 @@ const Work = () => {
   slidesPerView={1.2}
   spaceBetween={-30}
   speed={700}
-  slidesOffsetBefore={activeIndexOne === 0 ? vwToPx(10) : 0}
-  slidesOffsetAfter={activeIndexOne === 1 ? vwToPx(10) : 0}
+  slidesOffsetBefore={25}
+slidesOffsetAfter={25}
+
   coverflowEffect={{
     rotate: 50,
     stretch: 0,
@@ -87,8 +87,9 @@ const Work = () => {
   slidesPerView={1.2}
   spaceBetween={-30}
   speed={700}
-  slidesOffsetBefore={activeIndexOne === 0 ? vwToPx(10) : 0}
-  slidesOffsetAfter={activeIndexOne === 1 ? vwToPx(10) : 0}
+  slidesOffsetBefore={25}
+slidesOffsetAfter={25}
+
   coverflowEffect={{
     rotate: 50,
     stretch: 0,
@@ -100,7 +101,8 @@ const Work = () => {
   modules={[EffectCoverflow, Pagination]}
   pagination={{ clickable: true }}
   className="w-[99vw] rounded-2xl h-[41vh]"
-  onSlideChange={(swiper) => setActiveIndexOne(swiper.activeIndex)}
+onSlideChange={(swiper) => setActiveIndexTwo(swiper.activeIndex)}
+
 >
           {ourWorkTwo.map((item) => (
             <SwiperSlide key={item.id}>
