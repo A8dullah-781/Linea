@@ -1,8 +1,33 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Contact = forwardRef((props, ref) => {
+  useEffect(() => {
+    gsap.fromTo(
+      "#contact",
+      { opacity: 0, y: 60 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: "#contact",
+          start: "top 90%",
+        },
+      }
+    );
+  }, []);
+
   return (
-    <div ref={ref} id="contact" className="flex px-[5vw] bg-[#3E2519] md:bg-[#FEF1D9] items-center flex-col md:flex-row ">
+    <div
+      ref={ref}
+      id="contact"
+      className="flex px-[5vw] bg-[#3E2519] md:bg-[#FEF1D9] items-center flex-col md:flex-row "
+    >
       <div className="py-[4vh] md:py-[8vh] md:text-[#3E2519] text-[#FEF1D9] gap-4 flex flex-col justify-evenly items-start w-full md:w-[55%]  ">
         <div className="uppercase text-[10vw] md:text-left text-center md:text-[4vw] whitespace-nowrap leading-none font-semibold ">
           Let’s Design Your <br /> Space with <br /> Vision
@@ -21,58 +46,61 @@ const Contact = forwardRef((props, ref) => {
           personally by our design team.
         </div>
       </div>
+
       <div className="h-full flex justify-center items-center w-full md:w-[45%] ">
-       <div className="bg-[#3E2519] border-1 border-[#FEF1D9] text-white rounded-3xl lg:my-10 mb-6 md:mb-0  h-[70%] w-[90%]"> 
-         <form
-        action="https://formsubmit.co/your-email@example.com"
-        method="POST"
-        className="flex p-6 flex-col justify-evenly gap-4"
-      >
-        <h2 className="text-4xl lg:block block md:hidden font-[200]">Get in Touch</h2>
+        <div className="bg-[#3E2519] border-1 border-[#FEF1D9] text-white rounded-3xl lg:my-10 mb-6 md:mb-0  h-[70%] w-[90%]">
+          <form
+            action="https://formsubmit.co/your-email@example.com"
+            method="POST"
+            className="flex p-6 flex-col justify-evenly gap-4"
+          >
+            <h2 className="text-4xl lg:block block md:hidden font-[200]">
+              Get in Touch
+            </h2>
 
-        <div className="flex flex-col gap-1">
-          <label htmlFor="fullName">Full Name</label>
-          <input
-            type="text"
-            id="fullName"
-            name="fullName"
-            required
-            className="text-[#3E2519] bg-[#FEF1D9] px-3 py-2 rounded-3xl"
-          />
+            <div className="flex flex-col gap-1">
+              <label htmlFor="fullName">Full Name</label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                required
+                className="text-[#3E2519] bg-[#FEF1D9] px-3 py-2 rounded-3xl"
+              />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                className="text-[#3E2519] px-3 bg-[#FEF1D9] py-2 rounded-3xl"
+              />
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <label htmlFor="message">Your Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="3"
+                required
+                className="text-[#3E2519] px-3 bg-[#FEF1D9] py-2 rounded-3xl resize-none"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="mt-2 text-xs bg-[#FEF1D9] w-[60%] text-[#3E2519] py-3 rounded-2xl hover:bg-[#f9e0b6]"
+            >
+              Request a consultation
+            </button>
+
+            <input type="hidden" name="_captcha" value="false" />
+          </form>
         </div>
-
-        <div className="flex flex-col gap-1">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            className="text-[#3E2519] px-3 bg-[#FEF1D9] py-2 rounded-3xl"
-          />
-        </div>
-
-        <div className="flex flex-col gap-1">
-          <label htmlFor="message">Your Message</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="3"
-            required
-            className="text-[#3E2519] px-3 bg-[#FEF1D9] py-2 rounded-3xl resize-none"
-          />
-        </div>
-
-        <button
-          type="submit"
-          className="mt-2 text-xs bg-[#FEF1D9] w-[60%] text-[#3E2519] py-3 rounded-2xl hover:bg-[#f9e0b6]"
-        >
-          Request a consultation
-        </button>
-
-        <input type="hidden" name="_captcha" value="false" />
-      </form>
-       </div>
       </div>
     </div>
   );
