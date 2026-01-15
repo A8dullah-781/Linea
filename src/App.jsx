@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -26,7 +26,16 @@ const ScrollHandler = () => {
   const aboutRef = useRef(null);
   const lenisRef = useRef(null);
 
-  // Initialize Lenis
+  const [preloadTestimonial, setPreloadTestimonial] = useState(false);
+
+  useEffect(() => {
+    const id = requestIdleCallback(() => {
+      setPreloadTestimonial(true);
+    });
+    return () => cancelIdleCallback(id);
+  }, []);
+
+  
   useEffect(() => {
     if (!scrollContainerRef.current) return;
 
@@ -34,7 +43,7 @@ const ScrollHandler = () => {
       el: scrollContainerRef.current,
       smooth: true,
       duration: 1.2,
-      lerp: 0.08,
+      lerp: 0.1,
     });
 
     const raf = (time) => {
@@ -43,12 +52,10 @@ const ScrollHandler = () => {
     };
     requestAnimationFrame(raf);
 
-    return () => {
-      lenisRef.current.destroy();
-    };
+    return () => lenisRef.current.destroy();
   }, []);
 
-  // Scroll to top on route change
+  
   useEffect(() => {
     if (lenisRef.current) {
       lenisRef.current.scrollTo(0, { immediate: true });
@@ -57,24 +64,6 @@ const ScrollHandler = () => {
     }
   }, [location.pathname]);
 
-  // State-based scroll (Contact / About)
-  useEffect(() => {
-    if (!location.state?.scrollTo) return;
-
-    const scrollTarget = location.state.scrollTo === "contact" ? contactRef : aboutRef;
-
-    const timer = setTimeout(() => {
-      if (scrollTarget.current) {
-        if (lenisRef.current) lenisRef.current.scrollTo(scrollTarget.current);
-        else scrollTarget.current.scrollIntoView({ behavior: "smooth" });
-      }
-      window.history.replaceState({}, document.title);
-    }, 50);
-
-    return () => clearTimeout(timer);
-  }, [location]);
-
-  // Scroll functions to pass to Navbar
   const scrollToContact = () => {
     if (lenisRef.current) lenisRef.current.scrollTo(contactRef.current);
     else contactRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -86,8 +75,15 @@ const ScrollHandler = () => {
   };
 
   return (
-    <div ref={scrollContainerRef} id="app-scroll-container" className="overflow-x-hidden">
+    <div ref={scrollContainerRef} className="overflow-x-hidden">
       <Navbar scrollToContact={scrollToContact} scrollToAbout={scrollToAbout} />
+
+
+      {preloadTestimonial && (
+        <div style={{ display: "none" }}>
+          <Testmonial />
+        </div>
+      )}
 
       <Routes>
         <Route
