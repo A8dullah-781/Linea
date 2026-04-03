@@ -81,7 +81,7 @@ const Testmonial = () => {
               <div
                 key={card.id}
                 style={cardStyle}
-                className="md:w-[25vw] lg:w-[20vw] md:h-[25vh] lg:h-[45vh] bg-[#FEF1D9] rounded-3xl p-[1vw] text-[#3E2519] flex flex-col gap-4"
+                className="md:w-[25vw] lg:w-[20vw] relative md:h-[25vh] lg:h-[45vh] bg-[#FEF1D9] rounded-3xl p-[1vw] text-[#3E2519] flex flex-col gap-4"
               >
                 <div className="flex gap-3 items-center">
                   <img
@@ -114,7 +114,7 @@ const Testmonial = () => {
                 <p className="text-[1.1vw] text-center">
                   {card.descriptionOne}
                 </p>
-                <p className="text-[1vw] text-center opacity-70 mt-2">
+                <p className="text-[1vw] text-center md:bottom-3 md:px-2 absolute opacity-70 mt-2">
                   {card.descriptionTwo}
                 </p>
               </div>
