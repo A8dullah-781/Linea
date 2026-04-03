@@ -1,5 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Home from "./components/Home.jsx";
@@ -35,7 +40,6 @@ const ScrollHandler = () => {
     return () => cancelIdleCallback(id);
   }, []);
 
-  
   useEffect(() => {
     if (!scrollContainerRef.current) return;
 
@@ -55,7 +59,6 @@ const ScrollHandler = () => {
     return () => lenisRef.current.destroy();
   }, []);
 
-  
   useEffect(() => {
     if (lenisRef.current) {
       lenisRef.current.scrollTo(0, { immediate: true });
@@ -77,7 +80,6 @@ const ScrollHandler = () => {
   return (
     <div ref={scrollContainerRef} className="overflow-x-hidden">
       <Navbar scrollToContact={scrollToContact} scrollToAbout={scrollToAbout} />
-
 
       {preloadTestimonial && (
         <div style={{ display: "none" }}>

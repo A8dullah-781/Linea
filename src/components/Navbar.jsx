@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { FaBars, FaTimes, FaLinkedin, FaFacebookF, FaBehance, FaDribbble, FaInstagram } from "react-icons/fa";
+import {
+  FaBars,
+  FaTimes,
+  FaLinkedin,
+  FaFacebookF,
+  FaBehance,
+  FaDribbble,
+  FaInstagram,
+} from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const Navbar = ({ scrollToContact, scrollToAbout }) => {
@@ -45,26 +53,31 @@ const Navbar = ({ scrollToContact, scrollToAbout }) => {
   };
 
   const handleContactClick = () => {
-  setIsOpen(false);
+    setIsOpen(false);
 
-  // Agar home page par ho to direct scroll
-  if (location.pathname === "/") {
-    scrollToContact();
-  } else {
-    // Agar kisi aur page pe ho to navigate aur scroll
-    navigate("/", { state: { scrollTo: "contact" } });
-  }
-};
-
+    if (location.pathname === "/") {
+      scrollToContact();
+    } else {
+      navigate("/", { state: { scrollTo: "contact" } });
+    }
+  };
 
   return (
     <>
       <nav
         className={`flex h-[8vh] md:h-[8vh] lg:h-[10vh] w-screen bg-[#FFEBC6] justify-between items-center px-6 text-[#3E2519] fixed top-0 left-0 transition-transform duration-300 z-50
-        ${scrollDir === "down" && !isOpen ? "-translate-y-full" : "translate-y-0"}`}
+        ${
+          scrollDir === "down" && !isOpen
+            ? "-translate-y-full"
+            : "translate-y-0"
+        }`}
       >
         <div>
-          <img className="w-[30vw] md:w-[14vw] lg:w-[10vw]" src="/images/lineaLogo.webp" alt="Logo" />
+          <img
+            className="w-[30vw] md:w-[14vw] lg:w-[10vw]"
+            src="/images/lineaLogo.webp"
+            alt="Logo"
+          />
         </div>
 
         <ul className="hidden md:flex text-[1.1vw] items-center gap-10">
@@ -86,7 +99,10 @@ const Navbar = ({ scrollToContact, scrollToAbout }) => {
           </button>
         </ul>
 
-        <div className="md:hidden text-2xl cursor-pointer z-50" onClick={() => setIsOpen(!isOpen)}>
+        <div
+          className="md:hidden text-2xl cursor-pointer z-50"
+          onClick={() => setIsOpen(!isOpen)}
+        >
           {isOpen ? <FaTimes /> : <FaBars />}
         </div>
       </nav>
@@ -95,16 +111,27 @@ const Navbar = ({ scrollToContact, scrollToAbout }) => {
         className={`fixed top-0 right-0 h-full w-full bg-[#FFEBC6] z-50 transform transition-transform duration-500 ease-in-out
           ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
-        <div className="absolute top-6 right-6 text-3xl cursor-pointer z-50 md:hidden" onClick={() => setIsOpen(false)}>
+        <div
+          className="absolute top-6 right-6 text-3xl cursor-pointer z-50 md:hidden"
+          onClick={() => setIsOpen(false)}
+        >
           <FaTimes />
         </div>
 
         <div className="flex flex-col justify-between py-6 items-center h-full gap-8">
           <div className="flex mt-[6vh] items-center flex-col">
-            <img className="py-2 mb-6 w-[50vw]" src="/images/lineaLogo.webp" alt="" />
+            <img
+              className="py-2 mb-6 w-[50vw]"
+              src="/images/lineaLogo.webp"
+              alt=""
+            />
             <ul className="flex flex-col items-center gap-6 text-xl font-semibold">
               {menuItems.map((item) => (
-                <li key={item} className="cursor-pointer" onClick={() => handleMenuClick(item)}>
+                <li
+                  key={item}
+                  className="cursor-pointer"
+                  onClick={() => handleMenuClick(item)}
+                >
                   {item}
                 </li>
               ))}

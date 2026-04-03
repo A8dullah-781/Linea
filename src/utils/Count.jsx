@@ -10,7 +10,7 @@ const Count = ({ target = 0, speed = 20, step = 1 }) => {
     }
 
     const timer = setTimeout(() => {
-      setCount(prev => prev + step);
+      setCount((prev) => prev + step);
     }, speed);
 
     return () => clearTimeout(timer);

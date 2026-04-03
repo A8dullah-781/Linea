@@ -10,7 +10,6 @@ const Featured = () => {
   const rightImg = useRef(null);
 
   useEffect(() => {
-    // Left images: subtle y + opacity
     gsap.fromTo(
       leftImgs.current,
       { opacity: 0.7, y: 20 },
@@ -27,7 +26,6 @@ const Featured = () => {
       }
     );
 
-    // Right image: subtle y + scale
     gsap.fromTo(
       rightImg.current,
       { opacity: 0.7, y: 20, scale: 0.97 },
@@ -42,7 +40,11 @@ const Featured = () => {
           start: "top 75%",
         },
         onComplete: () => {
-          gsap.to(rightImg.current, { scale: 1, duration: 0.3, ease: "power1.out" });
+          gsap.to(rightImg.current, {
+            scale: 1,
+            duration: 0.3,
+            ease: "power1.out",
+          });
         },
       }
     );

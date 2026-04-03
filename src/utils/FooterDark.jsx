@@ -9,27 +9,27 @@ import {
 const FooterDark = () => {
   return (
     <footer className="md:bg-[#f5e6cf] bg-[#3b2416] text-[#f5e6cf] md:text-[#3b2416] px-6 md:px-16 py-14">
-      {/* Top Section */}
       <div className="flex flex-col lg:flex-row justify-between gap-10">
+        <img
+          className="block md:hidden -my-6 w-[40vw]"
+          src="/images/lineaLogo.png"
+          alt=""
+        />
 
-        <img className="block md:hidden -my-6 w-[40vw]" src="/images/lineaLogo.png" alt="" />
-        {/* Left */}
         <div className="flex flex-col gap-6">
           <h2 className="text-4xl font-[300] md:font-[200] tracking-widest leading-tight">
             LET’S WORK <br /> TOGETHER
           </h2>
 
           <div className="flex gap-4 text-lg">
-  <FaBehance className="cursor-pointer transition-all duration-300 hover:text-white hover:scale-110" />
-  <FaDribbble className="cursor-pointer transition-all duration-300 hover:text-white hover:scale-110" />
-  <FaLinkedinIn className="cursor-pointer transition-all duration-300 hover:text-white hover:scale-110" />
-  <FaFacebookF className="cursor-pointer transition-all duration-300 hover:text-white hover:scale-110" />
-  <FaInstagram className="cursor-pointer transition-all duration-300 hover:text-white hover:scale-110" />
-</div>
-
+            <FaBehance className="cursor-pointer transition-all duration-300 hover:text-white hover:scale-110" />
+            <FaDribbble className="cursor-pointer transition-all duration-300 hover:text-white hover:scale-110" />
+            <FaLinkedinIn className="cursor-pointer transition-all duration-300 hover:text-white hover:scale-110" />
+            <FaFacebookF className="cursor-pointer transition-all duration-300 hover:text-white hover:scale-110" />
+            <FaInstagram className="cursor-pointer transition-all duration-300 hover:text-white hover:scale-110" />
+          </div>
         </div>
 
-        {/* Right */}
         <div className="md:flex flex-col hidden gap-4 max-w-md w-full">
           <span className="text-sm tracking-wider">
             SUBSCRIBE FOR NEWSLETTER
@@ -51,10 +51,8 @@ const FooterDark = () => {
         </div>
       </div>
 
-      {/* Divider */}
       <div className="my-10 h-px bg-[#f5e6cf]/30" />
 
-      {/* Bottom */}
       <div className="flex flex-col md:flex-row justify-between text-sm gap-4">
         <span>© 2025 – All rights reserved</span>
 

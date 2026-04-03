@@ -4,7 +4,6 @@ import "swiper/css";
 import { TestmonialsCards } from "../../constants/constants";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-// memoized lightweight SVG star
 const Star = memo(({ type = "full", isDesktop }) => {
   return (
     <svg
@@ -43,14 +42,14 @@ const Testmonial = () => {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  const next = () =>
-    setIndex((prev) => (prev + CARDS_PER_VIEW) % total);
+  const next = () => setIndex((prev) => (prev + CARDS_PER_VIEW) % total);
   const prev = () =>
     setIndex((prev) => (prev - CARDS_PER_VIEW + total) % total);
 
   const visibleCards = useMemo(() => {
-    return Array.from({ length: CARDS_PER_VIEW }, (_, i) =>
-      TestmonialsCards[(index + i) % total]
+    return Array.from(
+      { length: CARDS_PER_VIEW },
+      (_, i) => TestmonialsCards[(index + i) % total]
     );
   }, [index, total]);
 
@@ -61,7 +60,6 @@ const Testmonial = () => {
 
   return (
     <div className="w-screen h-full pb-8 px-[5vw] bg-[#FEF1D9] md:bg-[#3E2519]">
-      {/* Title */}
       <div className="flex justify-center md:justify-between items-center text-white py-[4vh] lg:py-10">
         <div className="text-[10vw] text-[#3E2519] md:text-[#FEF1D9] text-center md:text-left md:text-[4.5vw] font-light uppercase">
           clients feedback
@@ -69,7 +67,6 @@ const Testmonial = () => {
         <div className="hidden md:block">Harmony, Materiality & Feeling</div>
       </div>
 
-      {/* Desktop + Tablet */}
       <div className="hidden md:flex items-center justify-center lg:gap-10 md:gap-6">
         <button onClick={prev} className="text-4xl text-white">
           <IoIosArrowBack />
@@ -84,7 +81,7 @@ const Testmonial = () => {
               <div
                 key={card.id}
                 style={cardStyle}
-                className="md:w-[25vw] lg:w-[20vw] md:h-[25vh] lg:h-[50vh] bg-[#FEF1D9] rounded-3xl p-[1vw] text-[#3E2519] flex flex-col gap-4"
+                className="md:w-[25vw] lg:w-[20vw] md:h-[25vh] lg:h-[45vh] bg-[#FEF1D9] rounded-3xl p-[1vw] text-[#3E2519] flex flex-col gap-4"
               >
                 <div className="flex gap-3 items-center">
                   <img
@@ -109,9 +106,7 @@ const Testmonial = () => {
                           <Star key={i} type="empty" isDesktop={isDesktop} />
                         );
                       })}
-                      <span className="text-[1vw] ml-2">
-                        ({card.rating})
-                      </span>
+                      <span className="text-[1vw] ml-2">({card.rating})</span>
                     </div>
                   </div>
                 </div>
@@ -132,7 +127,6 @@ const Testmonial = () => {
         </button>
       </div>
 
-      {/* Mobile Swiper */}
       <div className="md:hidden">
         <Swiper spaceBetween={15} slidesPerView={1}>
           {TestmonialsCards.map((card) => {
@@ -157,23 +151,15 @@ const Testmonial = () => {
                   <div className="flex gap-1 items-center">
                     {Array.from({ length: 5 }).map((_, i) => {
                       if (i < full)
-                        return (
-                          <Star key={i} type="full" isDesktop={false} />
-                        );
+                        return <Star key={i} type="full" isDesktop={false} />;
                       if (i === full && half)
-                        return (
-                          <Star key={i} type="half" isDesktop={false} />
-                        );
-                      return (
-                        <Star key={i} type="empty" isDesktop={false} />
-                      );
+                        return <Star key={i} type="half" isDesktop={false} />;
+                      return <Star key={i} type="empty" isDesktop={false} />;
                     })}
                     <span className="text-xs ml-1">({card.rating})</span>
                   </div>
 
-                  <p className="text-sm text-center">
-                    {card.descriptionOne}
-                  </p>
+                  <p className="text-sm text-center">{card.descriptionOne}</p>
                   <p className="text-xs text-center opacity-70 mt-1">
                     {card.descriptionTwo}
                   </p>
@@ -188,7 +174,6 @@ const Testmonial = () => {
         </div>
       </div>
 
-      {/* Why choose us */}
       <div className="md:hidden block text-center">
         <div className="uppercase text-[12vw] py-[3vh] text-[#3E2519] leading-none">
           why choose us?

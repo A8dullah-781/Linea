@@ -5,36 +5,46 @@ import gsap from "gsap";
 const Home = ({ contactRef }) => {
   const navigationType = useNavigationType();
 
-useEffect(() => {
-  if (location.state?.scrollTo === "contact" && contactRef.current) {
-    const timer = setTimeout(() => {
-      // Lenis ho to Lenis scroll, nahi to default
-      if (typeof window.lenis !== "undefined") {
-        window.lenis.scrollTo(contactRef.current);
-      } else {
-        contactRef.current.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 100);
+  useEffect(() => {
+    if (location.state?.scrollTo === "contact" && contactRef.current) {
+      const timer = setTimeout(() => {
+        if (typeof window.lenis !== "undefined") {
+          window.lenis.scrollTo(contactRef.current);
+        } else {
+          contactRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
 
-    return () => clearTimeout(timer);
-  }
-}, [location]);
+      return () => clearTimeout(timer);
+    }
+  }, [location]);
 
-
-  // ✨ GSAP Fade + From Bottom effect
-useEffect(() => {
-  gsap.fromTo(
-    "#home div.flex.justify-start",
-    { y: 50, opacity: 0 },  // from
-    { y: 0, opacity: 1, delay:0.3, duration: 1.5, ease: "power2.out", stagger: 0.3 } // to
-  );
-  gsap.fromTo(
-    ".other",
-    { y: 20, opacity: 0 },  // from
-    { y: 0, opacity: 1, delay:0.3, duration: 1.5, ease: "power2.out", stagger: 0.3 } // to
-  );
-}, []);
-
+  useEffect(() => {
+    gsap.fromTo(
+      "#home div.flex.justify-start",
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        delay: 0.3,
+        duration: 1.5,
+        ease: "power2.out",
+        stagger: 0.3,
+      } // to
+    );
+    gsap.fromTo(
+      ".other",
+      { y: 20, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        delay: 0.3,
+        duration: 1.5,
+        ease: "power2.out",
+        stagger: 0.3,
+      } // to
+    );
+  }, []);
 
   return (
     <div id="home">

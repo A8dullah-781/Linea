@@ -17,11 +17,10 @@ const Work = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const sectionRef = useRef(null); // main container animation
-  const titleRefs = useRef([]); // heading animations
-  const swiperRefs = useRef([]); // each swiper animation
-  const buttonRefs = useRef([]); // buttons animation
-
+  const sectionRef = useRef(null);
+  const titleRefs = useRef([]);
+  const swiperRefs = useRef([]);
+  const buttonRefs = useRef([]);
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
@@ -31,7 +30,6 @@ const Work = () => {
         },
       });
 
-      // Animate headings
       tl.from(titleRefs.current, {
         y: -30,
         opacity: 0,
@@ -40,42 +38,53 @@ const Work = () => {
         ease: "power2.out",
       });
 
-      // Animate swipers
-      tl.from(swiperRefs.current, {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.3,
-        ease: "power2.out",
-      }, "-=0.5");
+      tl.from(
+        swiperRefs.current,
+        {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+          stagger: 0.3,
+          ease: "power2.out",
+        },
+        "-=0.5"
+      );
 
-      // Animate buttons
-      tl.from(buttonRefs.current, {
-        y: 20,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power2.out",
-      }, "-=0.7");
-
+      tl.from(
+        buttonRefs.current,
+        {
+          y: 20,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: "power2.out",
+        },
+        "-=0.7"
+      );
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <div ref={sectionRef} className="bg-[#FEF1D9] min-h-screen md:hidden flex flex-col items-center w-screen">
-
-      {/* HEADER */}
-      <div ref={el => titleRefs.current[0] = el} className="flex flex-col justify-center items-center">
+    <div
+      ref={sectionRef}
+      className="bg-[#FEF1D9] min-h-screen md:hidden flex flex-col items-center w-screen"
+    >
+      <div
+        ref={(el) => (titleRefs.current[0] = el)}
+        className="flex flex-col justify-center items-center"
+      >
         <div className="uppercase text-[12vw] py-6 font-light">Our work</div>
         <div className="uppercase text-[7vw] -mt-6 font-[300] text-center">
           residential <br /> projects
         </div>
       </div>
 
-      {/* FIRST SWIPER */}
-      <div ref={el => swiperRefs.current[0] = el} className="md:hidden mt-4 flex flex-col items-center">
+      <div
+        ref={(el) => (swiperRefs.current[0] = el)}
+        className="md:hidden mt-4 flex flex-col items-center"
+      >
         <Swiper
           effect="coverflow"
           grabCursor
@@ -110,7 +119,7 @@ const Work = () => {
         </Swiper>
 
         <button
-          ref={el => buttonRefs.current[0] = el}
+          ref={(el) => (buttonRefs.current[0] = el)}
           className="bg-[#3E2519] rounded-2xl mt-1.5 text-white py-2 px-4"
           onClick={() => {
             if (activeIndexOne === 0)
@@ -123,12 +132,17 @@ const Work = () => {
         </button>
       </div>
 
-      {/* SECOND SWIPER */}
-      <div ref={el => titleRefs.current[1] = el} className="uppercase mt-12 py-6 text-[7vw] font-[300] text-center">
+      <div
+        ref={(el) => (titleRefs.current[1] = el)}
+        className="uppercase mt-12 py-6 text-[7vw] font-[300] text-center"
+      >
         commercial <br /> projects
       </div>
 
-      <div ref={el => swiperRefs.current[1] = el} className="md:hidden mb-12 flex flex-col items-center">
+      <div
+        ref={(el) => (swiperRefs.current[1] = el)}
+        className="md:hidden mb-12 flex flex-col items-center"
+      >
         <Swiper
           effect="coverflow"
           grabCursor
@@ -163,7 +177,7 @@ const Work = () => {
         </Swiper>
 
         <button
-          ref={el => buttonRefs.current[1] = el}
+          ref={(el) => (buttonRefs.current[1] = el)}
           className="bg-[#3E2519] rounded-2xl mt-1.5 text-white py-2 px-4"
           onClick={() => {
             if (activeIndexTwo === 0)
