@@ -26,74 +26,84 @@ const Contact = forwardRef((props, ref) => {
     <div
       ref={ref}
       id="contact"
-      className="flex px-[5vw] bg-[#3E2519] md:bg-[#FEF1D9] items-center flex-col md:flex-row "
+      className="flex px-[5vw] bg-[#3E2519] md:bg-[#FEF1D9] items-start md:items-center flex-col md:flex-row gap-6 md:gap-0 py-8 md:py-0"
     >
-      <div className="py-[4vh] md:py-[8vh] md:text-[#3E2519] text-[#FEF1D9] gap-6 flex flex-col justify-evenly items-start w-full md:w-[55%]  ">
-        <div className="uppercase tracking-wide text-[10vw] md:text-left text-center md:text-[4vw] whitespace-nowrap leading-none font-semibold ">
-          Let’s Design Your <br /> Space with <br /> Vision
+      {/* ── Left: text ── */}
+      <div className="md:py-[8vh] md:text-[#3E2519] text-[#FEF1D9] gap-4 md:gap-6 flex flex-col justify-evenly items-start w-full md:w-[55%]">
+        <div className="uppercase tracking-wide text-[8vw] md:text-left text-center w-full md:text-[4vw] whitespace-nowrap leading-none font-semibold">
+          Let's Design Your <br /> Space with <br /> Vision
         </div>
-        <div className="hidden text-[1.1vw] md:block">
-          <div className="font-semibold">Why Work With Linea Interiors?</div>
-          <ul className="list-disc px-6">
+
+        {/* shown on tablet + desktop */}
+        <div className="hidden md:block text-[clamp(11px,1.4vw,16px)]">
+          <div className="font-semibold mb-1">Why Work With Linea Interiors?</div>
+          <ul className="list-disc px-5 space-y-1">
             <li>Thoughtful, function-driven design</li>
             <li>Clear process from concept to execution</li>
             <li>Attention to materials, proportions, and flow</li>
             <li>Designs that feel intentional — not overdone</li>
           </ul>
         </div>
-        <div className="font-semibold lg:leading-8 hidden md:block text-[1.5vw] pr-[13vw]">
+
+        <div className="font-semibold hidden md:block text-[clamp(11px,1.4vw,18px)] pr-[8vw] leading-relaxed">
           We typically respond within 24 hours. All inquiries are reviewed
           personally by our design team.
         </div>
       </div>
 
-      <div className="h-full flex justify-center items-center w-full md:w-[45%] ">
-        <div className="bg-[#3E2519] md:bg-[#FEF1D9] border-1 border-[#FEF1D9] md:border-[#3E2519] md:text-[#3E2519] text-white pb-0 lg:pb-4 rounded-3xl lg:my-10 mb-6 md:mb-0  h-[70%] w-[90%] md:w-[80%]">
+      {/* ── Right: form ── */}
+      <div className="flex justify-center items-center w-full md:w-[45%] pb-6 md:pb-0">
+        <div className="bg-[#3E2519] md:bg-[#FEF1D9] border border-[#FEF1D9] md:border-[#3E2519] md:text-[#3E2519] text-white rounded-3xl lg:my-10 w-full md:w-[90%] lg:w-[80%]">
           <form
             action="https://formsubmit.co/your-email@example.com"
             method="POST"
-            className="flex p-6 flex-col justify-evenly gap-4"
+            className="flex p-5 md:p-6 flex-col gap-3 md:gap-4"
           >
-            <h2 className="text-4xl md:uppercase md:tracking-widest text-center lg:block block md:hidden font-[200]">
+            {/* Title — visible on mobile + tablet, hidden on desktop via lg:hidden */}
+            <h2 className="text-3xl md:text-[clamp(20px,2.5vw,32px)] uppercase md:tracking-widest text-center font-[200] block md:hidden">
+              Get in Touch
+            </h2>
+            {/* Desktop title */}
+            <h2 className="hidden lg:block text-[clamp(20px,2vw,28px)] uppercase tracking-widest text-center font-[200]">
               Get in Touch
             </h2>
 
             <div className="flex flex-col gap-1">
-              <label htmlFor="fullName">Full Name</label>
+              <label className="text-sm md:text-[clamp(11px,1.1vw,15px)]" htmlFor="fullName">Full Name</label>
               <input
                 type="text"
                 id="fullName"
                 name="fullName"
                 required
-                className="md:bg-[#3E2519] text-[#3E2519] md:text-[#FEF1D9] bg-[#FEF1D9] px-3 py-2 rounded-3xl"
+                className="md:bg-[#3E2519] text-[#3E2519] md:text-[#FEF1D9] bg-[#FEF1D9] px-3 py-2 rounded-3xl text-sm md:text-[clamp(11px,1.1vw,15px)]"
               />
             </div>
 
             <div className="flex flex-col gap-1">
-              <label htmlFor="email">Email</label>
+              <label className="text-sm md:text-[clamp(11px,1.1vw,15px)]" htmlFor="email">Email</label>
               <input
                 type="email"
                 id="email"
                 name="email"
                 required
-                className="md:bg-[#3E2519] text-[#3E2519] md:text-[#FEF1D9] bg-[#FEF1D9] px-3 py-2 rounded-3xl"
+                className="md:bg-[#3E2519] text-[#3E2519] md:text-[#FEF1D9] bg-[#FEF1D9] px-3 py-2 rounded-3xl text-sm md:text-[clamp(11px,1.1vw,15px)]"
               />
             </div>
 
             <div className="flex flex-col gap-1">
-              <label htmlFor="message">Your Message</label>
+              <label className="text-sm md:text-[clamp(11px,1.1vw,15px)]" htmlFor="message">Your Message</label>
               <textarea
                 id="message"
                 name="message"
                 rows="3"
                 required
-                className="md:bg-[#3E2519] text-[#3E2519] md:text-[#FEF1D9] bg-[#FEF1D9] px-3 py-2 rounded-3xl resize-none"
+                className="md:bg-[#3E2519] text-[#3E2519] md:text-[#FEF1D9] bg-[#FEF1D9] px-3 py-2 rounded-3xl resize-none text-sm md:text-[clamp(11px,1.1vw,15px)]"
               />
             </div>
 
             <button
               type="submit"
-              className="mt-2 text-lg  md:bg-[#3E2519] text-[#3E2519] md:text-[#FEF1D9] bg-[#FEF1D9] lg:hover:bg-[#f9e0b6] lg:hover:text-[#3E2519] lg:hover:border-[#3E2519] transition-all transition-500 border w-[60%] lg:w-[52%]  py-3 rounded-xl"
+              className="mt-1 md:bg-[#3E2519] text-[#3E2519] md:text-[#FEF1D9] bg-[#FEF1D9] lg:hover:bg-[#f9e0b6] lg:hover:text-[#3E2519] lg:hover:border-[#3E2519] transition-all duration-300 border w-[70%] md:w-[80%] lg:w-[60%] py-2 md:py-3 rounded-xl text-sm md:text-[clamp(11px,1.1vw,15px)]"
             >
               Request a consultation
             </button>
